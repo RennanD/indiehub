@@ -20,7 +20,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       <div className="flex flex-col gap-1">
         <div
           className={cn(
-            "relative h-10 rounded-md flex grounded-md border p-2.5 bg-foreground group border-text-muted hover:border-primary focus-within:border-primary",
+            "relative h-10 rounded-md flex grounded-md border p-2.5 bg-foreground group border-text-muted/50 hover:border-primary focus-within:border-primary",
             {
               "border-red-400 hover:border-red-400 focus-within:border-red-400":
                 !!errorMessage,
