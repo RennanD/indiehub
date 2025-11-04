@@ -1,10 +1,23 @@
-@import "tailwindcss"; 
+@import "tailwindcss";
 
 :root {
-  --color-primary: #3B82F6;
-  --color-foreground: #1F2937;
-  --color-text: #F9FAFB;
-  --color-text-muted : #9CA3AF;
+  --color-primary: #3b82f6;
+  --color-foreground: #1f2937;
+  --color-text: #f9fafb;
+  --color-text-muted: #9ca3af;
 
   --font-sans: "Inter", sans-serif;
+}
+
+@theme inline {
+  --color-primary: #3b82f6;
+  --color-foreground: #1f2937;
+  --color-accent: #f9fafb;
+  --color-text-muted: #9ca3af;
+
+  --font-sans: "Red Hat Display", sans-serif;
+}
+
+body {
+  @apply bg-foreground text-accent;
 }

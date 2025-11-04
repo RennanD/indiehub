@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Red_Hat_Display } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const redHatDisplay = Red_Hat_Display({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-red-hat-display",
 });
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,10 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${inter.variable} font-sans antialiased`}
-      >
+    <html lang="pt-BR">
+      <body className={`${redHatDisplay.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>
