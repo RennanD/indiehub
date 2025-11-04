@@ -21,7 +21,7 @@ const ITEMS = [
   },
 ];
 
-export default function WhyToUseSection() {
+export function WhyToUseSection() {
   return (
     <section className="py-20">
       <div className="w-full max-w-7xl mx-auto px-5 flex flex-col gap-10">

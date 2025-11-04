@@ -12,6 +12,8 @@
 @theme inline {
   --color-primary: #3b82f6;
   --color-foreground: #1f2937;
+  --color-background-low: #111827;
+  --color-secondary: #273038;
   --color-accent: #f9fafb;
   --color-text-muted: #9ca3af;
 

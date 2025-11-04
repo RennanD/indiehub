@@ -1,11 +1,17 @@
-import HeroSection from "./sections/hero/hero";
-import WhyToUseSection from "./sections/why-to-use/why-to-use";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
+
+import { HeroSection, WhyToUseSection } from "./sections";
 
 export default function LandingPage() {
   return (
-    <main>
-      <HeroSection />
-      <WhyToUseSection />
-    </main>
+    <>
+      <Header />
+      <main>
+        <HeroSection />
+        <WhyToUseSection />
+      </main>
+      <Footer />
+    </>
   );
 }

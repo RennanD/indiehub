@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-export default function HeroSection() {
+export function HeroSection() {
   return (
     <section className="pb-20 pt-6 bg-foreground md:pt-20">
       <div className="w-full max-w-7xl mx-auto px-5 flex flex-col gap-10 md:flex-row md:items-center">
