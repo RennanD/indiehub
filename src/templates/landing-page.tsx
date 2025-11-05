@@ -1,7 +1,12 @@
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 
-import { HeroSection, ProjectSection, WhyToUseSection } from "./sections";
+import {
+  FaqSection,
+  HeroSection,
+  ProjectSection,
+  WhyToUseSection,
+} from "./sections";
 
 export default function LandingPage() {
   return (
@@ -11,6 +16,7 @@ export default function LandingPage() {
         <HeroSection />
         <ProjectSection />
         <WhyToUseSection />
+        <FaqSection />
       </main>
       <Footer />
     </>
