@@ -5,6 +5,7 @@ import {
   CtaSection,
   FaqSection,
   HeroSection,
+  PricingSection,
   ProjectSection,
   WhyToUseSection,
 } from "./sections";
@@ -17,6 +18,7 @@ export function LandingPage() {
         <HeroSection />
         <ProjectSection />
         <WhyToUseSection />
+        <PricingSection />
         <FaqSection />
         <CtaSection />
       </main>

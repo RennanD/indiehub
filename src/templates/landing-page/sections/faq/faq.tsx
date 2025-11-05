@@ -28,7 +28,7 @@ const FAQ = [
 
 export function FaqSection() {
   return (
-    <section className="py-20 bg-background-low">
+    <section className="py-20 bg-background-low" id="faq">
       <div className="w-full max-w-7xl mx-auto px-5 flex flex-col gap-10 md:flex-row md:justify-between items-center md:items-start">
         <div className="flex flex-col gap-4 items-center text-center">
           <h2 className="text-2xl font-bold md:text-3xl">

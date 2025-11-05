@@ -23,7 +23,7 @@ const ITEMS = [
 
 export function WhyToUseSection() {
   return (
-    <section className="py-20">
+    <section className="py-20" id="features">
       <div className="w-full max-w-7xl mx-auto px-5 flex flex-col gap-10">
         <div className="flex flex-col gap-4 items-center text-center">
           <h2 className="text-2xl font-bold md:text-3xl">

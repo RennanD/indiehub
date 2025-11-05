@@ -13,7 +13,7 @@ export function Button({ className, asChild, ...props }: ButtonProps) {
   return (
     <Comp
       className={cn(
-        "px-4 py-2 h-10 rounded-md bg-primary text-white hover:bg-primary/80 transition-colors",
+        "px-4 py-2 h-10 flex items-center font-medium justify-center gap-2 rounded-md bg-primary text-white hover:bg-primary/80 transition-colors",
         className,
       )}
       {...props}

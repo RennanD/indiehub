@@ -3,7 +3,7 @@ import projectImage from "@/assets/images/project-demo.webp";
 
 export function ProjectSection() {
   return (
-    <section className="py-20 bg-background-low">
+    <section className="py-20 bg-background-low" id="demo">
       <div className="w-full max-w-7xl mx-auto px-5 flex items-center flex-col gap-10">
         <div className="space-y-4 text-center">
           <h2 className="text-2xl font-bold md:text-3xl">

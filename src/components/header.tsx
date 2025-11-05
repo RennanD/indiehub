@@ -15,6 +15,10 @@ const NAV_ITEMS = [
     label: "Planos",
     href: "#plans",
   },
+  {
+    label: "FAQ",
+    href: "#faq",
+  },
 ];
 
 export default function Header() {

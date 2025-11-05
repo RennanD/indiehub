@@ -1,11 +1,13 @@
+import Image from "next/image";
+import heroImage from "@/assets/images/hero-image.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 export function HeroSection() {
   return (
     <section className="pb-20 pt-6 bg-foreground md:pt-20">
-      <div className="w-full max-w-7xl mx-auto px-5 flex flex-col gap-10 md:flex-row md:items-center">
-        <div className="flex flex-col gap-8">
+      <div className="w-full max-w-7xl mx-auto px-5 flex flex-col justify-between gap-10 md:flex-row md:items-center">
+        <div className="flex flex-col gap-8 w-full">
           <div className="flex flex-col gap-4">
             <h1 className="text-3xl font-bold md:text-5xl max-w-[634px]">
               Mostre seus projetos para o mundo e descubra quais estão
@@ -29,7 +31,9 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="w-full max-w-[584px] h-[584px] bg-accent rounded-lg"></div>
+        <div className="flex justify-center items-center w-full">
+          <Image src={heroImage} alt="Hero image" width={320} />
+        </div>
       </div>
     </section>
   );
