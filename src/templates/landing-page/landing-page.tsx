@@ -9,7 +9,7 @@ import {
   WhyToUseSection,
 } from "./sections";
 
-export default function LandingPage() {
+export function LandingPage() {
   return (
     <>
       <Header />
