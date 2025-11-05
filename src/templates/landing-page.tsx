@@ -2,6 +2,7 @@ import Footer from "@/components/footer";
 import Header from "@/components/header";
 
 import {
+  CtaSection,
   FaqSection,
   HeroSection,
   ProjectSection,
@@ -17,6 +18,7 @@ export default function LandingPage() {
         <ProjectSection />
         <WhyToUseSection />
         <FaqSection />
+        <CtaSection />
       </main>
       <Footer />
     </>
