@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { LandingPage } from "@/templates/landing-page";
 
 export const metadata: Metadata = {
-  title: "ShortDev",
+  title: "IndieHub",
   description:
-    "ShortDev - Mostre seus projetos para o mundo e descubra quais estão crescendo.",
+    "IndieHub - Mostre seus projetos para o mundo e descubra quais estão crescendo.",
   alternates: {
-    canonical: "https://shortdev.site",
+    canonical: "https://indiehub.site",
   },
   keywords: [
     " portfólio de projetos",

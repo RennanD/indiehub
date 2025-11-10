@@ -10,7 +10,7 @@ export function PrivacyPage() {
             <div className="flex items-center rounded-md p-1 bg-primary">
               <Spline className="size-4 text-accent" />
             </div>
-            <span className="text-accent font-bold">ShortDev</span>
+            <span className="text-accent font-bold">IndieHub</span>
           </Link>
         </div>
       </header>
@@ -34,7 +34,7 @@ export function PrivacyPage() {
                 1. Introdução
               </h2>
               <p className="mb-4">
-                O <strong>ShortDev</strong> ("nós", "nosso" ou "plataforma")
+                O <strong>IndieHub</strong> ("nós", "nosso" ou "plataforma")
                 está comprometido em proteger sua privacidade e garantir a
                 segurança de seus dados pessoais. Esta Política de Privacidade
                 descreve como coletamos, usamos, armazenamos e protegemos suas
@@ -47,7 +47,7 @@ export function PrivacyPage() {
                 proteção de dados.
               </p>
               <p>
-                Ao usar o ShortDev, você concorda com as práticas descritas
+                Ao usar o IndieHub, você concorda com as práticas descritas
                 nesta Política de Privacidade. Se você não concordar, por favor,
                 não utilize nossos serviços.
               </p>
@@ -66,7 +66,7 @@ export function PrivacyPage() {
                 2.1. Dados Fornecidos pelo Usuário
               </h3>
               <p className="mb-4">
-                Quando você se cadastra ou usa o ShortDev, coletamos:
+                Quando você se cadastra ou usa o IndieHub, coletamos:
               </p>
               <ul className="list-disc pl-6 space-y-2 mb-4">
                 <li>
@@ -94,7 +94,7 @@ export function PrivacyPage() {
                 2.2. Dados Coletados Automaticamente
               </h3>
               <p className="mb-4">
-                Quando você usa o ShortDev, coletamos automaticamente:
+                Quando você usa o IndieHub, coletamos automaticamente:
               </p>
               <ul className="list-disc pl-6 space-y-2 mb-4">
                 <li>
@@ -482,7 +482,7 @@ export function PrivacyPage() {
                 9. Menores de Idade
               </h2>
               <p className="mb-4">
-                O ShortDev é destinado a usuários com 18 anos ou mais. Não
+                O IndieHub é destinado a usuários com 18 anos ou mais. Não
                 coletamos intencionalmente dados pessoais de menores de 18 anos
                 sem o consentimento dos pais ou responsáveis legais.
               </p>
@@ -499,7 +499,7 @@ export function PrivacyPage() {
               </h2>
               <p className="mb-4">
                 Seus dados podem ser armazenados e processados em servidores
-                localizados fora do Brasil. Ao usar o ShortDev, você consente
+                localizados fora do Brasil. Ao usar o IndieHub, você consente
                 com a transferência de seus dados para esses locais.
               </p>
               <p>

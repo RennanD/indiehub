@@ -29,7 +29,7 @@ export default function Header() {
           <div className="flex items-center rounded-md p-1 bg-primary">
             <Spline className="size-4 text-accent" />
           </div>
-          <span className="text-accent font-bold">ShortDev</span>
+          <span className="text-accent font-bold">IndieHub</span>
         </Link>
 
         <nav className="hidden md:block">

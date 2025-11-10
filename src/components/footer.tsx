@@ -28,7 +28,7 @@ export default function Footer() {
     <footer className="w-full">
       <div className="w-full max-w-7xl mx-auto flex gap-6 flex-col md:flex-row items-center justify-between p-5 border-t border-text-muted/20">
         <p className="text-text-muted text-sm">
-          &copy; {new Date().getFullYear()} ShortDev. Todos os direitos
+          &copy; {new Date().getFullYear()} IndieHub. Todos os direitos
           reservados.
         </p>
 

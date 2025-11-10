@@ -24,7 +24,7 @@ export function HeroSection() {
             <div className="flex flex-col gap-2 md:flex-row md:items-center">
               <Input
                 placeholder="my-projects"
-                prefix="https://shortdev.site/"
+                prefix="https://indiehub.site/"
               />
             </div>
             <Button className="md:w-fit">Criar</Button>

@@ -10,7 +10,7 @@ export function TermsPage() {
             <div className="flex items-center rounded-md p-1 bg-primary">
               <Spline className="size-4 text-accent" />
             </div>
-            <span className="text-accent font-bold">ShortDev</span>
+            <span className="text-accent font-bold">IndieHub</span>
           </Link>
         </div>
       </header>
@@ -32,20 +32,20 @@ export function TermsPage() {
                 1. Introdução e Aceitação dos Termos
               </h2>
               <p className="mb-4">
-                Bem-vindo ao <strong>ShortDev</strong>. Estes Termos de Uso
-                ("Termos") regem seu acesso e uso da plataforma ShortDev, um
+                Bem-vindo ao <strong>IndieHub</strong>. Estes Termos de Uso
+                ("Termos") regem seu acesso e uso da plataforma IndieHub, um
                 serviço digital que permite aos usuários criar páginas de
                 portfólio e compartilhar links curtos de seus projetos, com
                 rastreamento de visitas e analytics.
               </p>
               <p className="mb-4">
-                Ao acessar, usar ou criar uma conta no ShortDev, você concorda
+                Ao acessar, usar ou criar uma conta no IndieHub, você concorda
                 em cumprir e estar vinculado a estes Termos. Se você não
                 concorda com qualquer parte destes Termos, não deve utilizar
                 nossos serviços.
               </p>
               <p>
-                Estes Termos constituem um acordo legal entre você e o ShortDev.
+                Estes Termos constituem um acordo legal entre você e o IndieHub.
                 Recomendamos que você leia atentamente este documento antes de
                 utilizar nossos serviços.
               </p>
@@ -56,7 +56,7 @@ export function TermsPage() {
                 2. Descrição do Serviço
               </h2>
               <p className="mb-4">
-                O ShortDev é uma plataforma de software como serviço (SaaS) que
+                O IndieHub é uma plataforma de software como serviço (SaaS) que
                 oferece:
               </p>
               <ul className="list-disc pl-6 space-y-2 mb-4">
@@ -88,7 +88,7 @@ export function TermsPage() {
                 3. Cadastro e Conta do Usuário
               </h2>
               <p className="mb-4">
-                Para utilizar os serviços do ShortDev, você precisa criar uma
+                Para utilizar os serviços do IndieHub, você precisa criar uma
                 conta fornecendo informações precisas, atualizadas e completas,
                 incluindo:
               </p>
@@ -124,14 +124,14 @@ export function TermsPage() {
                 4. Planos, Pagamentos e Renovação
               </h2>
               <p className="mb-4">
-                O ShortDev oferece planos de assinatura com diferentes níveis de
+                O IndieHub oferece planos de assinatura com diferentes níveis de
                 funcionalidades e recursos. Os preços, recursos e limites de
                 cada plano estão disponíveis em nossa página de planos.
               </p>
               <p className="mb-4">
                 <strong>Pagamento:</strong> Os pagamentos são processados
                 através de gateways de pagamento seguros. Ao assinar um plano,
-                você autoriza o ShortDev a cobrar o valor da assinatura no
+                você autoriza o IndieHub a cobrar o valor da assinatura no
                 método de pagamento fornecido.
               </p>
               <p className="mb-4">
@@ -182,7 +182,7 @@ export function TermsPage() {
               <p>
                 Após o período de 7 dias, não serão realizados reembolsos,
                 exceto em casos de erro do sistema ou violação destes Termos por
-                parte do ShortDev.
+                parte do IndieHub.
               </p>
             </div>
 
@@ -195,8 +195,8 @@ export function TermsPage() {
                 cancelar sua assinatura a qualquer momento através das
                 configurações da sua conta ou entrando em contato com nosso
                 suporte. O cancelamento entrará em vigor no final do período de
-                cobrança atual, e você continuará tendo acesso aos serviços até o
-                final do período já pago.
+                cobrança atual, e você continuará tendo acesso aos serviços até
+                o final do período já pago.
               </p>
               <p className="mb-4">
                 <strong>Exclusão de Conta:</strong> Você pode solicitar a
@@ -206,7 +206,7 @@ export function TermsPage() {
                 recuperados.
               </p>
               <p className="mb-4">
-                <strong>Cancelamento pela Parte do ShortDev:</strong>{" "}
+                <strong>Cancelamento pela Parte do IndieHub:</strong>{" "}
                 Reservamo-nos o direito de suspender ou encerrar sua conta
                 imediatamente, sem aviso prévio, se você violar estes Termos,
                 usar o serviço de forma ilegal ou fraudulenta, ou se sua conta
@@ -226,20 +226,20 @@ export function TermsPage() {
               <p className="mb-4">
                 <strong>Conteúdo do Usuário:</strong> Você mantém todos os
                 direitos de propriedade intelectual sobre o conteúdo que criar,
-                compartilhar ou enviar através do ShortDev, incluindo textos,
+                compartilhar ou enviar através do IndieHub, incluindo textos,
                 imagens, links e projetos exibidos em sua página de portfólio.
               </p>
               <p className="mb-4">
-                Ao usar o ShortDev, você nos concede uma licença não exclusiva,
+                Ao usar o IndieHub, você nos concede uma licença não exclusiva,
                 mundial e livre de royalties para usar, armazenar, exibir e
                 processar seu conteúdo exclusivamente para fornecer e melhorar
                 nossos serviços.
               </p>
               <p className="mb-4">
-                <strong>Propriedade do ShortDev:</strong> Todos os direitos de
-                propriedade intelectual relacionados à plataforma ShortDev,
+                <strong>Propriedade do IndieHub:</strong> Todos os direitos de
+                propriedade intelectual relacionados à plataforma IndieHub,
                 incluindo software, design, logotipos, marcas, textos e
-                funcionalidades, são de propriedade exclusiva do ShortDev ou de
+                funcionalidades, são de propriedade exclusiva do IndieHub ou de
                 seus licenciadores.
               </p>
               <p>
@@ -253,7 +253,7 @@ export function TermsPage() {
                 8. Limitação de Responsabilidade
               </h2>
               <p className="mb-4">
-                O ShortDev é fornecido "como está" e "conforme disponível", sem
+                O IndieHub é fornecido "como está" e "conforme disponível", sem
                 garantias de qualquer tipo, expressas ou implícitas, incluindo,
                 mas não se limitando a, garantias de comercialização, adequação
                 a uma finalidade específica ou não violação.
@@ -264,7 +264,7 @@ export function TermsPage() {
                 Você é responsável por fazer backup de seu conteúdo e dados.
               </p>
               <p className="mb-4">
-                Em nenhuma circunstância o ShortDev, seus diretores,
+                Em nenhuma circunstância o IndieHub, seus diretores,
                 funcionários ou parceiros serão responsáveis por danos
                 indiretos, incidentais, especiais, consequenciais ou punitivos,
                 incluindo perda de lucros, dados, uso ou outras perdas
@@ -282,7 +282,7 @@ export function TermsPage() {
               <h2 className="text-2xl font-semibold mb-4 text-accent">
                 9. Uso Aceitável
               </h2>
-              <p className="mb-4">Você concorda em não usar o ShortDev para:</p>
+              <p className="mb-4">Você concorda em não usar o IndieHub para:</p>
               <ul className="list-disc pl-6 space-y-2 mb-4">
                 <li>Atividades ilegais ou que violem direitos de terceiros</li>
                 <li>
@@ -345,7 +345,7 @@ export function TermsPage() {
                 Estes Termos são regidos pelas leis da República Federativa do
                 Brasil. Qualquer disputa relacionada a estes Termos ou ao uso do
                 serviço será resolvida no foro da comarca onde se encontra a
-                sede do ShortDev, renunciando as partes a qualquer outro, por
+                sede do IndieHub, renunciando as partes a qualquer outro, por
                 mais privilegiado que seja.
               </p>
             </div>
@@ -360,20 +360,20 @@ export function TermsPage() {
                 disposições permanecerão em pleno vigor e efeito.
               </p>
               <p className="mb-4">
-                <strong>Renúncia:</strong> A falha do ShortDev em exercer ou
+                <strong>Renúncia:</strong> A falha do IndieHub em exercer ou
                 fazer valer qualquer direito ou disposição destes Termos não
                 constitui uma renúncia a tal direito ou disposição.
               </p>
               <p className="mb-4">
                 <strong>Cessão:</strong> Você não pode ceder ou transferir estes
                 Termos ou seus direitos sob estes Termos sem nosso consentimento
-                prévio por escrito. O ShortDev pode ceder estes Termos a
+                prévio por escrito. O IndieHub pode ceder estes Termos a
                 qualquer momento.
               </p>
               <p>
                 <strong>Acordo Completo:</strong> Estes Termos, juntamente com
                 nossa Política de Privacidade, constituem o acordo completo
-                entre você e o ShortDev em relação ao uso do serviço.
+                entre você e o IndieHub em relação ao uso do serviço.
               </p>
             </div>
 
@@ -383,7 +383,7 @@ export function TermsPage() {
               </h2>
               <p className="mb-4">
                 Se você tiver dúvidas, preocupações ou precisar de suporte
-                relacionado a estes Termos ou ao uso do ShortDev, entre em
+                relacionado a estes Termos ou ao uso do IndieHub, entre em
                 contato conosco através de:
               </p>
               <ul className="list-disc pl-6 space-y-2">
@@ -411,4 +411,3 @@ export function TermsPage() {
     </div>
   );
 }
-

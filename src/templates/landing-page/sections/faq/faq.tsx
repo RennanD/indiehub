@@ -1,6 +1,6 @@
 const FAQ = [
   {
-    question: "O que é o ShortDev?",
+    question: "O que é o IndieHub?",
     answer:
       "É uma plataforma onde criadores e indie hackers podem reunir todos os seus projetos em um só link, gerar links curtos e acompanhar o desempenho de cada um.",
   },

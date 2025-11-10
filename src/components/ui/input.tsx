@@ -39,7 +39,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             </div>
           )}
           <input
-            className={cn("placeholder-text-muted text-accent outline-none")}
+            className={cn(
+              "placeholder-text-muted text-accent outline-none flex-1",
+            )}
             ref={ref}
             type="text"
             {...rest}

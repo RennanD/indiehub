@@ -17,7 +17,7 @@ const ITEMS = [
     icon: Eye,
     title: "Aumente sua Visibilidade",
     description:
-      "Com o ShortDev, você pode compartilhar seus projetos em diferentes redes sociais e plataformas.",
+      "Com o IndieHub, você pode compartilhar seus projetos em diferentes redes sociais e plataformas.",
   },
 ];
 
