@@ -1,40 +1,18 @@
-import { forwardRef, type TextareaHTMLAttributes } from "react";
-import { cn } from "@/lib/utils";
+import * as React from "react"
 
-interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
-  errorMessage?: string;
+import { cn } from "@/lib/utils"
+
+function Textarea({ className, ...props }: React.ComponentProps<"textarea">) {
+  return (
+    <textarea
+      data-slot="textarea"
+      className={cn(
+        "border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 flex field-sizing-content min-h-16 w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+        className
+      )}
+      {...props}
+    />
+  )
 }
 
-export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ className, errorMessage, ...rest }, ref) => {
-    return (
-      <div className="flex flex-col gap-1">
-        <div
-          className={cn(
-            "relative rounded-md border p-2.5 bg-foreground group border-text-muted/50 hover:border-primary focus-within:border-primary",
-            {
-              "border-red-400 hover:border-red-400 focus-within:border-red-400":
-                !!errorMessage,
-            },
-          )}
-        >
-          <textarea
-            className={cn(
-              "placeholder-text-muted text-accent outline-none w-full resize-none min-h-[100px]",
-              className,
-            )}
-            ref={ref}
-            {...rest}
-          />
-        </div>
-        {errorMessage && (
-          <span className="text-[14px] leading-[22.4px] text-red-400">
-            {errorMessage}
-          </span>
-        )}
-      </div>
-    );
-  },
-);
-
-Textarea.displayName = "Textarea";
+export { Textarea }

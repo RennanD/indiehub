@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Red_Hat_Display } from "next/font/google";
+import { Inder } from "next/font/google";
 import "./globals.css";
 
-const redHatDisplay = Red_Hat_Display({
+const inder = Inder({
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-red-hat-display",
+  variable: "--font-inder",
 });
 
 export const metadata: Metadata = {
@@ -18,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
-      <body className={`${redHatDisplay.variable} font-sans antialiased`}>
+    <html lang="pt-BR" className="dark">
+      <body className={`${inder.variable} darkfont-sans antialiased`}>
         {children}
       </body>
     </html>

@@ -17,10 +17,10 @@ export function PrivacyPage() {
 
       <main className="w-full max-w-4xl mx-auto px-5 py-10">
         <article className="prose prose-invert max-w-none">
-          <h1 className="text-3xl font-bold mb-2 text-accent">
+          <h1 className="text-3xl font-bold mb-2 text-foreground">
             Política de Privacidade
           </h1>
-          <p className="text-text-muted mb-8">
+          <p className="text-muted-foreground mb-8">
             Última atualização:{" "}
             {new Date().toLocaleDateString("pt-BR", {
               month: "long",
@@ -28,9 +28,9 @@ export function PrivacyPage() {
             })}
           </p>
 
-          <section className="space-y-6 text-text-muted">
+          <section className="space-y-6 text-muted-foreground">
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 1. Introdução
               </h2>
               <p className="mb-4">
@@ -54,7 +54,7 @@ export function PrivacyPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 2. Coleta de Dados
               </h2>
               <p className="mb-4">
@@ -62,7 +62,7 @@ export function PrivacyPage() {
                 melhorar nossos serviços:
               </p>
 
-              <h3 className="text-xl font-semibold mb-3 text-accent">
+              <h3 className="text-xl font-semibold mb-3 text-foreground">
                 2.1. Dados Fornecidos pelo Usuário
               </h3>
               <p className="mb-4">
@@ -90,7 +90,7 @@ export function PrivacyPage() {
                 </li>
               </ul>
 
-              <h3 className="text-xl font-semibold mb-3 text-accent">
+              <h3 className="text-xl font-semibold mb-3 text-foreground">
                 2.2. Dados Coletados Automaticamente
               </h3>
               <p className="mb-4">
@@ -119,7 +119,7 @@ export function PrivacyPage() {
                 </li>
               </ul>
 
-              <h3 className="text-xl font-semibold mb-3 text-accent">
+              <h3 className="text-xl font-semibold mb-3 text-foreground">
                 2.3. Cookies e Tecnologias de Rastreamento
               </h3>
               <p className="mb-4">
@@ -137,14 +137,14 @@ export function PrivacyPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 3. Uso das Informações
               </h2>
               <p className="mb-4">
                 Utilizamos seus dados para os seguintes propósitos:
               </p>
 
-              <h3 className="text-xl font-semibold mb-3 text-accent">
+              <h3 className="text-xl font-semibold mb-3 text-foreground">
                 3.1. Prestação de Serviços
               </h3>
               <ul className="list-disc pl-6 space-y-2 mb-4">
@@ -158,7 +158,7 @@ export function PrivacyPage() {
                 <li>Enviar notificações relacionadas ao serviço</li>
               </ul>
 
-              <h3 className="text-xl font-semibold mb-3 text-accent">
+              <h3 className="text-xl font-semibold mb-3 text-foreground">
                 3.2. Melhoria e Desenvolvimento
               </h3>
               <ul className="list-disc pl-6 space-y-2 mb-4">
@@ -168,7 +168,7 @@ export function PrivacyPage() {
                 <li>Otimizar o desempenho e a segurança do serviço</li>
               </ul>
 
-              <h3 className="text-xl font-semibold mb-3 text-accent">
+              <h3 className="text-xl font-semibold mb-3 text-foreground">
                 3.3. Comunicação
               </h3>
               <ul className="list-disc pl-6 space-y-2 mb-4">
@@ -182,7 +182,7 @@ export function PrivacyPage() {
                 <li>Notificar sobre questões de segurança ou violações</li>
               </ul>
 
-              <h3 className="text-xl font-semibold mb-3 text-accent">
+              <h3 className="text-xl font-semibold mb-3 text-foreground">
                 3.4. Segurança e Conformidade
               </h3>
               <ul className="list-disc pl-6 space-y-2">

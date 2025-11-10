@@ -1,3 +1,10 @@
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
 const FAQ = [
   {
     question: "O que é o IndieHub?",
@@ -29,21 +36,25 @@ const FAQ = [
 export function FaqSection() {
   return (
     <section className="py-20 bg-background-low" id="faq">
-      <div className="w-full max-w-7xl mx-auto px-5 flex flex-col gap-10 md:flex-row md:justify-between items-center md:items-start">
+      <div className="w-full max-w-7xl mx-auto px-5 flex flex-col gap-10">
         <div className="flex flex-col gap-4 items-center text-center">
           <h2 className="text-2xl font-bold md:text-3xl">
             Perguntas Frequentes
           </h2>
         </div>
 
-        <ul className="flex flex-col gap-4 max-w-[720px]">
-          {FAQ.map((item) => (
-            <li key={item.question}>
-              <h3 className="text-lg font-bold">{item.question}</h3>
-              <p className="text-text-muted">{item.answer}</p>
-            </li>
-          ))}
-        </ul>
+        <div className="w-full max-w-4xl mx-auto">
+          <Accordion type="single" collapsible>
+            {FAQ.map((faq) => (
+              <AccordionItem key={faq.question} value={faq.question}>
+                <AccordionTrigger>{faq.question}</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
       </div>
     </section>
   );

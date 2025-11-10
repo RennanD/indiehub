@@ -1,58 +1,57 @@
-import { ChartBar, Eye, Globe } from "lucide-react";
+import { BarChart3, Link2, Zap } from "lucide-react";
 
-const ITEMS = [
+const features = [
   {
-    icon: ChartBar,
-    title: "Analytics de Projetos",
+    icon: Zap,
+    title: "Visibilidade sem esforço",
     description:
-      "Acompanhe o engajamento dos visitantes e entenda como as pessoas interagem com seus projetos.",
+      "Compartilhe seus projetos e chegue a um público global de makers e criadores.",
   },
   {
-    icon: Globe,
-    title: "Centralize seus Projetos",
+    icon: BarChart3,
+    title: "Métricas automáticas",
     description:
-      "Tenha todos os seus projetos centralizados em um só lugar, de forma organizada e fácil de acessar.",
+      "Acompanhe visualizações, cliques e engajamento de cada projeto em tempo real.",
   },
   {
-    icon: Eye,
-    title: "Aumente sua Visibilidade",
+    icon: Link2,
+    title: "Links curtos personalizados",
     description:
-      "Com o IndieHub, você pode compartilhar seus projetos em diferentes redes sociais e plataformas.",
+      "Crie URLs memoráveis e track performance com UTMs automáticas.",
   },
 ];
 
 export function WhyToUseSection() {
   return (
-    <section className="py-20" id="features">
-      <div className="w-full max-w-7xl mx-auto px-5 flex flex-col gap-10">
-        <div className="flex flex-col gap-4 items-center text-center">
-          <h2 className="text-2xl font-bold md:text-3xl">
-            Divulgar é tão importante quanto criar.
+    <section id="features" className="py-20 px-4 relative">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
+            Por que usar o IndieHub
           </h2>
-          <p className="text-text-muted text-lg max-w-[510px]">
-            Você já finalizou um projeto incrível, agora é hora de colocá-lo
-            diante das pessoas certas.
+          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+            Facilite a divulgação de seus projetos e acompanhe as métricas
+            detalhadas de cada um.
           </p>
-
-          <div className="h-px w-[73px] bg-text-muted"></div>
         </div>
 
-        <ul className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {ITEMS.map((item) => {
-            const Icon = item.icon;
-
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {features.map((feature) => {
+            const Icon = feature.icon;
             return (
-              <li
-                key={item.title}
-                className="flex flex-col gap-3 p-6 rounded-lg border border-text-muted/20"
+              <div
+                key={feature.title}
+                className="group glass-effect p-8 rounded-xl border border-text-muted/20 hover:border-primary/50 transition-all duration-300"
               >
-                <Icon className="size-6 text-primary" />
-                <h3 className="text-lg font-bold">{item.title}</h3>
-                <p className="text-text-muted">{item.description}</p>
-              </li>
+                <div className="mb-6 inline-flex p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                  <Icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
+                <p className="text-muted-foreground">{feature.description}</p>
+              </div>
             );
           })}
-        </ul>
+        </div>
       </div>
     </section>
   );

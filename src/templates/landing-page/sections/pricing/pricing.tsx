@@ -1,138 +1,121 @@
-import { ArrowRight, Check } from "lucide-react";
+import { Check } from "lucide-react";
+import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
-const FEATURES = [
-  "Uma página personalizada para mostrar todos os seus projetos",
-  "Links curtos e rastreáveis para cada projeto",
-  "Analytics em tempo real com número de visitas e canais de origem",
-  "Geração automática de UTMs para divulgar com eficiência",
-];
-
-const PLANS = [
+const plans = [
   {
-    name: "Plano Mensal",
-    price: 19.9,
-    fullPrice: 29.9,
-    highlight: false,
+    name: "Personal",
+    price: "R$39,00",
+    description: "Perfeito para começar",
     features: [
-      "Todas as funcionalidades incluídas",
-      "Cancelamento a qualquer momento",
-      "Reembolso garantido em até 7 dias após a primeira assinatura",
+      "1 projeto",
+      "Analytics de perfil e projeto",
+      "Links compartilháveis",
+      "UTMs automáticas",
     ],
+    popular: false,
   },
   {
-    name: "Plano Anual",
-    price: 190.0,
-    fullPrice: 290.0,
-    highlight: true,
+    name: "Hacker",
+    price: "R$99,00",
+    description: "Para makers que querem escalar",
     features: [
-      "Tudo do plano mensal",
-      "20% de desconto",
-      "Acesso garantido por 12 meses",
+      "10 projetos",
+      "Analytics de perfil e projeto",
+      "Links compartilháveis",
+      "UTMs automáticas",
+      "Suporte prioritário",
     ],
+    popular: true,
   },
 ];
-
-function formatPrice(price: number) {
-  return new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  }).format(price);
-}
 
 export function PricingSection() {
   return (
-    <section className="pt-20 pb-20 bg-background-low" id="plans">
-      <div className="w-full max-w-7xl mx-auto px-5 flex flex-col gap-10">
-        <div className="flex flex-col gap-4 items-center text-center">
-          <h2 className="text-2xl font-bold md:text-3xl max-w-[650px]">
-            Mostre seus projetos, acompanhe os resultados e cresça com dados.
+    <section className="py-20 px-4 relative">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-background/50" />
+        <svg className="absolute w-full h-full opacity-5">
+          <title>Grid background effect</title>
+          <defs>
+            <pattern
+              id="grid"
+              width="40"
+              height="40"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 40 0 L 0 0 0 40"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="0.5"
+              />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+      </div>
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
+            Planos que crescem com você
           </h2>
-          <p className="text-text-muted text-lg max-w-[750px]">
-            Crie sua página de portfólio, compartilhe seus projetos com links
-            curtos e veja quais canais trazem mais visitas, tudo em um só lugar.
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Mesmas funcionalidades, diferentes limites. Escolha o plano que
+            combina com seu ritmo de criação.
           </p>
         </div>
 
-        <div className="flex flex-col rounded-lg border border-text-muted/20 md:p-10 p-4 gap-10 md:items-start md:flex-row md:justify-between md:gap-10">
-          <ul className="flex flex-col gap-6 max-w-[420px]">
-            {FEATURES.map((feature) => (
-              <li key={feature} className="flex place-items-baseline gap-4">
-                <div className="size-6 shrink-0 rounded-md bg-primary/10 flex items-center justify-center">
-                  <Check className="size-4 text-primary" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto">
+          {plans.map((plan) => (
+            <div
+              key={plan.name}
+              className={`relative rounded-2xl p-8 transition-all duration-300 ${
+                plan.popular
+                  ? "glass-effect border border-primary/50 animate-glow-purple"
+                  : "glass-effect border border-border"
+              }`}
+            >
+              {plan.popular && (
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                  <Badge>Popular</Badge>
                 </div>
-                <p className="text-lg font-medium text-accent">{feature}</p>
-              </li>
-            ))}
-          </ul>
+              )}
 
-          <ul className="flex flex-col gap-8 w-full max-w-[520px]">
-            {PLANS.map((plan) => {
-              const formattedPrice = formatPrice(plan.price);
-              const formattedFullPrice = formatPrice(plan.fullPrice);
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
+                <p className="text-muted-foreground text-sm mb-4">
+                  {plan.description}
+                </p>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-4xl font-bold">{plan.price}</span>
+                </div>
+                <p className="text-muted-foreground mt-2 text-sm mb-4">
+                  Pague uma vez, use sempre.
+                </p>
+              </div>
 
-              return (
-                <li
-                  key={plan.name}
-                  className={cn(
-                    "p-6 relative space-y-6 bg-foreground rounded-lg border border-text-muted/20",
-                    {
-                      "border-primary": plan.highlight,
-                    },
-                  )}
+              <Link href="/auth/signup">
+                <Button
+                  className="w-full mb-8"
+                  variant={plan.popular ? "default" : "outline"}
+                  size="lg"
                 >
-                  {plan.highlight && (
-                    <div className="absolute -top-4 right-1/2 translate-x-1/2 bg-primary text-accent px-4 py-1 rounded-full">
-                      <span className="text-accent font-medium">
-                        Mais Popular
-                      </span>
-                    </div>
-                  )}
-                  <h3 className="text-lg font-medium">{plan.name}</h3>
-                  <div>
-                    <span className="text-text-muted line-through text-sm font-medium">
-                      {formattedFullPrice}
-                    </span>
-                    <p className="text-4xl font-bold text-accent">
-                      {formattedPrice}
-                      <span className="text-base">
-                        /{plan.name === "Plano Mensal" ? "mês" : "ano"}
-                      </span>
-                    </p>
+                  Começar gratuitamente
+                </Button>
+              </Link>
+
+              <div className="space-y-4">
+                {plan.features.map((feature) => (
+                  <div key={feature} className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <span className="text-foreground">{feature}</span>
                   </div>
-
-                  <div className="h-px w-full bg-text-muted/20"></div>
-
-                  <ul className="flex flex-col gap-4">
-                    {plan.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex place-items-baseline gap-4"
-                      >
-                        <div className="size-6 shrink-0 rounded-md bg-primary/10 flex items-center justify-center">
-                          <Check className="size-4 text-primary" />
-                        </div>
-                        <p className="text-lg font-medium text-accent">
-                          {feature}
-                        </p>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <Button
-                    className={cn("w-full", {
-                      "bg-secondary hover:bg-primary transition-colors":
-                        !plan.highlight,
-                    })}
-                  >
-                    Assinar {plan.name}
-                    <ArrowRight className="size-4" />
-                  </Button>
-                </li>
-              );
-            })}
-          </ul>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
