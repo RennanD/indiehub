@@ -8,9 +8,9 @@ export function PrivacyPage() {
         <div className="w-full max-w-4xl py-5 mx-auto px-5">
           <Link href="/" className="flex items-center gap-2 w-fit">
             <div className="flex items-center rounded-md p-1 bg-primary">
-              <Spline className="size-4 text-accent" />
+              <Spline className="size-4 text-foreground" />
             </div>
-            <span className="text-accent font-bold">IndieHub</span>
+            <span className="text-foreground font-bold">IndieHub</span>
           </Link>
         </div>
       </header>
@@ -196,7 +196,7 @@ export function PrivacyPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 4. Cookies e Tecnologias de Rastreamento
               </h2>
               <p className="mb-4">
@@ -204,7 +204,7 @@ export function PrivacyPage() {
                 rastreamento:
               </p>
 
-              <h3 className="text-xl font-semibold mb-3 text-accent">
+              <h3 className="text-xl font-semibold mb-3 text-foreground">
                 4.1. Tipos de Cookies
               </h3>
               <ul className="list-disc pl-6 space-y-2 mb-4">
@@ -227,7 +227,7 @@ export function PrivacyPage() {
                 </li>
               </ul>
 
-              <h3 className="text-xl font-semibold mb-3 text-accent">
+              <h3 className="text-xl font-semibold mb-3 text-foreground">
                 4.2. Gerenciamento de Cookies
               </h3>
               <p className="mb-4">
@@ -243,14 +243,14 @@ export function PrivacyPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 5. Compartilhamento de Dados
               </h2>
               <p className="mb-4">
                 Compartilhamos seus dados apenas nas seguintes circunstâncias:
               </p>
 
-              <h3 className="text-xl font-semibold mb-3 text-accent">
+              <h3 className="text-xl font-semibold mb-3 text-foreground">
                 5.1. Provedores de Serviços Essenciais
               </h3>
               <p className="mb-4">
@@ -285,7 +285,7 @@ export function PrivacyPage() {
                 para os fins especificados.
               </p>
 
-              <h3 className="text-xl font-semibold mb-3 text-accent">
+              <h3 className="text-xl font-semibold mb-3 text-foreground">
                 5.2. Requisitos Legais
               </h3>
               <p className="mb-4">
@@ -300,7 +300,7 @@ export function PrivacyPage() {
                 <li>Prevenir ou investigar atividades ilegais</li>
               </ul>
 
-              <h3 className="text-xl font-semibold mb-3 text-accent">
+              <h3 className="text-xl font-semibold mb-3 text-foreground">
                 5.3. Transferências de Negócio
               </h3>
               <p className="mb-4">
@@ -310,7 +310,7 @@ export function PrivacyPage() {
                 ou uso de dados pessoais.
               </p>
 
-              <h3 className="text-xl font-semibold mb-3 text-accent">
+              <h3 className="text-xl font-semibold mb-3 text-foreground">
                 5.4. Conteúdo Público
               </h3>
               <p>
@@ -322,7 +322,7 @@ export function PrivacyPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 6. Segurança das Informações
               </h2>
               <p className="mb-4">
@@ -371,7 +371,7 @@ export function PrivacyPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 7. Direitos do Usuário
               </h2>
               <p className="mb-4">
@@ -379,7 +379,7 @@ export function PrivacyPage() {
                 aos seus dados pessoais:
               </p>
 
-              <h3 className="text-xl font-semibold mb-3 text-accent">
+              <h3 className="text-xl font-semibold mb-3 text-foreground">
                 7.1. Direitos Disponíveis
               </h3>
               <ul className="list-disc pl-6 space-y-2 mb-4">
@@ -420,7 +420,7 @@ export function PrivacyPage() {
                 </li>
               </ul>
 
-              <h3 className="text-xl font-semibold mb-3 text-accent">
+              <h3 className="text-xl font-semibold mb-3 text-foreground">
                 7.2. Como Exercer Seus Direitos
               </h3>
               <p className="mb-4">
@@ -437,7 +437,7 @@ export function PrivacyPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 8. Retenção e Exclusão de Dados
               </h2>
               <p className="mb-4">
@@ -478,7 +478,7 @@ export function PrivacyPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 9. Menores de Idade
               </h2>
               <p className="mb-4">
@@ -494,7 +494,7 @@ export function PrivacyPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 10. Transferências Internacionais de Dados
               </h2>
               <p className="mb-4">
@@ -511,7 +511,7 @@ export function PrivacyPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 11. Alterações na Política de Privacidade
               </h2>
               <p className="mb-4">
@@ -541,7 +541,7 @@ export function PrivacyPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 12. Contato do DPO e Canal de Privacidade
               </h2>
               <p className="mb-4">

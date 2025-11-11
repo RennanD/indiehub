@@ -8,16 +8,18 @@ export function TermsPage() {
         <div className="w-full max-w-4xl py-5 mx-auto px-5">
           <Link href="/" className="flex items-center gap-2 w-fit">
             <div className="flex items-center rounded-md p-1 bg-primary">
-              <Spline className="size-4 text-accent" />
+              <Spline className="size-4 text-foreground" />
             </div>
-            <span className="text-accent font-bold">IndieHub</span>
+            <span className="text-foreground font-bold">IndieHub</span>
           </Link>
         </div>
       </header>
 
       <main className="w-full max-w-4xl mx-auto px-5 py-10">
         <article className="prose prose-invert max-w-none">
-          <h1 className="text-3xl font-bold mb-2 text-accent">Termos de Uso</h1>
+          <h1 className="text-3xl font-bold mb-2 text-foreground">
+            Termos de Uso
+          </h1>
           <p className="text-text-muted mb-8">
             Última atualização:{" "}
             {new Date().toLocaleDateString("pt-BR", {
@@ -28,7 +30,7 @@ export function TermsPage() {
 
           <section className="space-y-6 text-text-muted">
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 1. Introdução e Aceitação dos Termos
               </h2>
               <p className="mb-4">
@@ -52,7 +54,7 @@ export function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 2. Descrição do Serviço
               </h2>
               <p className="mb-4">
@@ -84,7 +86,7 @@ export function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 3. Cadastro e Conta do Usuário
               </h2>
               <p className="mb-4">
@@ -120,7 +122,7 @@ export function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 4. Planos, Pagamentos e Renovação
               </h2>
               <p className="mb-4">
@@ -155,7 +157,7 @@ export function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 5. Política de Reembolso
               </h2>
               <p className="mb-4">
@@ -187,7 +189,7 @@ export function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 6. Cancelamento e Exclusão de Conta
               </h2>
               <p className="mb-4">
@@ -220,7 +222,7 @@ export function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 7. Propriedade Intelectual
               </h2>
               <p className="mb-4">
@@ -249,7 +251,7 @@ export function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 8. Limitação de Responsabilidade
               </h2>
               <p className="mb-4">
@@ -279,7 +281,7 @@ export function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 9. Uso Aceitável
               </h2>
               <p className="mb-4">Você concorda em não usar o IndieHub para:</p>
@@ -309,7 +311,7 @@ export function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 10. Alterações nos Termos
               </h2>
               <p className="mb-4">
@@ -338,7 +340,7 @@ export function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 11. Lei Aplicável e Foro
               </h2>
               <p className="mb-4">
@@ -351,7 +353,7 @@ export function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 12. Disposições Gerais
               </h2>
               <p className="mb-4">
@@ -378,7 +380,7 @@ export function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-accent">
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">
                 13. Contato para Suporte e Dúvidas
               </h2>
               <p className="mb-4">
