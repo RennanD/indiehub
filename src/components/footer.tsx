@@ -57,7 +57,7 @@ export default function Footer() {
             return (
               <Link key={link.href} href={link.href}>
                 <div className="flex items-center justify-center size-8 rounded-md bg-text-muted/10">
-                  <Icon className="size-4 text-accent" />
+                  <Icon className="size-4 text-primary" />
                 </div>
               </Link>
             );
