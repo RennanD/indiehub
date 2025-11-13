@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { TermsPage } from "@/templates/terms-page";
+import { TermsPage } from "@/templates/marketing/terms-page";
 
 export const metadata: Metadata = {
   title: "Termos de Uso - IndieHub",

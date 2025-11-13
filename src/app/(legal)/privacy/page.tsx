@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PrivacyPage } from "@/templates/privacy-page";
+import { PrivacyPage } from "@/templates/marketing/privacy-page";
 
 export const metadata: Metadata = {
   title: "Política de Privacidade - IndieHub",
