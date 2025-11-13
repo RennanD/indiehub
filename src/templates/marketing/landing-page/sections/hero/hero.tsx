@@ -1,7 +1,9 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { Preview } from "@/components/preview";
 import { Android } from "@/components/ui/android";
 import { Button } from "@/components/ui/button";
+import { Gradient } from "@/components/ui/gradient";
 import {
   InputGroup,
   InputGroupAddon,
@@ -9,9 +11,34 @@ import {
   InputGroupText,
 } from "@/components/ui/input-group";
 
+const PROJECTS = [
+  {
+    title: "Project 1",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    href: "https://indiehub.site/project-1",
+  },
+  {
+    title: "Project 2",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    href: "https://indiehub.site/project-2",
+  },
+
+  {
+    title: "Project 3",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    href: "https://indiehub.site/project-3",
+  },
+  {
+    title: "Project 4",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    href: "https://indiehub.site/project-4",
+  },
+];
+
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 pt-5">
+    <section className="relative pb-20 flex items-center justify-center px-4 pt-5">
+      <Gradient position="absolute" />
       {/* Grid background effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-background/50" />
@@ -73,8 +100,14 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="flex-1">
-          <Android />
+        <div className="flex-1 flex items-center justify-center">
+          <Android>
+            <Preview
+              name="John Doe"
+              description="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+              projects={PROJECTS}
+            />
+          </Android>
         </div>
 
         {/* <div className="relative flex-1 h-80 md:h-96 rounded-xl overflow-hidden glass-effect border border-border">

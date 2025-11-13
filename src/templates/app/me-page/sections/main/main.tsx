@@ -1,13 +1,19 @@
+"use client";
+
 import {
   Eye,
   FolderArchive,
   Github,
   Instagram,
   Linkedin,
+  LogOut,
   Save,
   Share,
+  TrendingUp,
   Twitter,
 } from "lucide-react";
+import { useState } from "react";
+import { Preview } from "@/components/preview";
 import { Android } from "@/components/ui/android";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -38,12 +44,72 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
+import { AreaChartComponent } from "./area-chart";
+
+const PROJECTS = [
+  {
+    title: "Project 1",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    href: "https://indiehub.site/project-1",
+  },
+  {
+    title: "Project 2",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    href: "https://indiehub.site/project-2",
+  },
+
+  {
+    title: "Project 3",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    href: "https://indiehub.site/project-3",
+  },
+  {
+    title: "Project 4",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    href: "https://indiehub.site/project-4",
+  },
+];
 
 export function MainSection() {
+  const defaultDescription =
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit.";
+
+  const [characterCount, setCharacterCount] = useState(
+    70 - defaultDescription.length,
+  );
+  const [description, setDescription] = useState(defaultDescription);
+
+  function handleChangeDescription(value: string) {
+    setDescription(value);
+
+    setCharacterCount(70 - value.length);
+  }
+
   return (
-    <section className="flex flex-1 pb-20 pt-5 md:pt-20">
-      <div className="w-full max-w-7xl mx-auto px-5 flex flex-col gap-10 md:flex-row">
-        <div className="flex flex-col gap-2 flex-2">
+    <section className="flex relative flex-col gap-6 flex-1 pt-5 md:pt-20">
+      <div className="w-full max-w-7xl mx-auto px-5">
+        <Card className="">
+          <CardContent className="flex items-center justify-between">
+            <div>
+              <div className="flex items-center gap-2">
+                <h1 className="text-2xl font-bold">1000</h1>
+                <TrendingUp className="w-4 h-4 text-primary" />
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Visualizações totais
+              </p>
+            </div>
+
+            <Button variant="outline" size="icon">
+              <LogOut className="w-4 h-4 text-destructive" />
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="w-full relative max-w-7xl pb-32 mx-auto px-5 flex flex-col gap-10 md:flex-row">
+        <div className="flex flex-col gap-2 flex-2 max-w-3xl">
           <Card>
             <CardHeader className="flex flex-col md:flex-row md:items-center gap-6 justify-between">
               <Avatar className="size-14">
@@ -68,14 +134,28 @@ export function MainSection() {
             </CardHeader>
 
             <CardContent className="flex flex-col gap-4">
-              <InputGroup>
-                <InputGroupTextarea placeholder="Conte sobre você" />
-                <InputGroupAddon align="block-end">
-                  <InputGroupText className="text-muted-foreground text-xs">
-                    250 caracteres restantes
-                  </InputGroupText>
-                </InputGroupAddon>
-              </InputGroup>
+              <div className="flex flex-col gap-2">
+                <InputGroup>
+                  <InputGroupTextarea
+                    onChange={(e) => handleChangeDescription(e.target.value)}
+                    value={description}
+                    className={cn({
+                      "border-destructive": characterCount < 0,
+                    })}
+                    placeholder="Conte sobre você"
+                  />
+                  <InputGroupAddon align="block-end">
+                    <InputGroupText className="text-muted-foreground text-xs">
+                      {characterCount} caracteres restantes
+                    </InputGroupText>
+                  </InputGroupAddon>
+                </InputGroup>
+                {characterCount < 0 && (
+                  <span className="text-destructive text-xs">
+                    Você atingiu o limite de caracteres
+                  </span>
+                )}
+              </div>
 
               <div className="flex gap-2">
                 <Popover>
@@ -184,10 +264,18 @@ export function MainSection() {
               </EmptyContent>
             </Empty>
           </Card>
+
+          <AreaChartComponent />
         </div>
 
-        <div className="flex-col gap-2 flex-1 hidden md:flex">
-          <Android />
+        <div className="flex-col sticky top-20 gap-2 flex-1 hidden md:flex">
+          <Android size="lg">
+            <Preview
+              name="John Doe"
+              description="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+              projects={PROJECTS}
+            />
+          </Android>
         </div>
       </div>
     </section>

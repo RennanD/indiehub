@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
+import { Gradient } from "@/components/ui/gradient";
 
 export function CtaSection() {
   return (
-    <section className="py-20">
+    <section className="py-20 relative">
+      <Gradient position="absolute" />
       <div className="w-full max-w-7xl items-center text-center justify-center mx-auto px-5 flex flex-col gap-10">
         <div className="flex flex-col gap-4 items-center text-center">
           <h2 className="text-2xl font-bold md:text-3xl text-center">
