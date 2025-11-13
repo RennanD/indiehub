@@ -186,6 +186,10 @@
     @apply bg-background text-foreground;
   }
 
+  button {
+    @apply cursor-pointer;
+  }
+
   .glass-effect {
     background-color: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(12px);

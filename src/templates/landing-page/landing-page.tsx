@@ -9,10 +9,24 @@ import {
   WhyToUseSection,
 } from "./sections";
 
+const NAV_ITEMS = [
+  {
+    label: "Por que usar?",
+    href: "#features",
+  },
+  {
+    label: "Planos",
+    href: "#plans",
+  },
+  {
+    label: "FAQ",
+    href: "#faq",
+  },
+];
 export function LandingPage() {
   return (
     <>
-      <Header />
+      <Header links={NAV_ITEMS} />
       <main>
         <HeroSection />
         {/* <ProjectSection /> */}

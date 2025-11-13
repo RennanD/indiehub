@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { Android } from "@/components/ui/android";
 import { Button } from "@/components/ui/button";
 import {
   InputGroup,
@@ -65,15 +66,18 @@ export function HeroSection() {
               asChild
               className="gap-2 bg-primary hover:bg-primary/90"
             >
-              <Link href="/auth/signup">
+              <Link href="/create-link">
                 Criar minha página <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
           </div>
         </div>
 
-        <div className="relative flex-1 h-80 md:h-96 rounded-xl overflow-hidden glass-effect border border-border">
-          {/* Demo preview placeholder */}
+        <div className="flex-1">
+          <Android />
+        </div>
+
+        {/* <div className="relative flex-1 h-80 md:h-96 rounded-xl overflow-hidden glass-effect border border-border">
           <div className="w-full h-full flex items-center justify-center">
             <div className="text-center">
               <div className="w-16 h-16 bg-primary/10 rounded-lg mx-auto mb-4 flex items-center justify-center">
@@ -85,7 +89,7 @@ export function HeroSection() {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
