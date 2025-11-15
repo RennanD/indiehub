@@ -13,6 +13,7 @@ import {
   Twitter,
 } from "lucide-react";
 import { useState } from "react";
+import { manageAuth } from "@/actions/manage-auth";
 import { Preview } from "@/components/preview";
 import { Android } from "@/components/ui/android";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -101,7 +102,7 @@ export function MainSection() {
               </p>
             </div>
 
-            <Button variant="outline" size="icon">
+            <Button onClick={manageAuth} variant="outline" size="icon">
               <LogOut className="w-4 h-4 text-destructive" />
             </Button>
           </CardContent>

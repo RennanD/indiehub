@@ -1,12 +1,16 @@
-import { Spline } from "lucide-react";
+import { Spline, User } from "lucide-react";
 import Link from "next/link";
+import { manageAuth } from "@/actions/manage-auth";
+import { auth } from "@/lib/auth";
 import { Button } from "./ui/button";
 
-export default function Header({
+export default async function Header({
   links,
 }: {
   links: { label: string; href: string }[];
 }) {
+  const session = await auth();
+
   return (
     <header className="w-full">
       <div className="w-full max-w-7xl py-5 mx-auto px-5 border-b border-text-muted/20 flex items-center justify-between">
@@ -35,9 +39,15 @@ export default function Header({
         )}
 
         <nav>
-          <Button variant="secondary" asChild>
-            <Link href="/login">Entrar</Link>
-          </Button>
+          {session ? (
+            <Button asChild variant="secondary">
+              <Link href="/me">Dashboard</Link>
+            </Button>
+          ) : (
+            <Button variant="secondary" onClick={manageAuth}>
+              Entrar
+            </Button>
+          )}
         </nav>
       </div>
     </header>

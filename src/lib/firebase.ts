@@ -5,7 +5,7 @@ import { getFirestore } from "firebase-admin/firestore";
 import { getStorage } from "firebase-admin/storage";
 
 const decodedPrivateKey = Buffer.from(
-  process.env.FIREBASE_PRIVATE_KEY as string,
+  process.env.FIREBASE_PRIVATE_KEY!,
   "base64",
 ).toString("utf-8");
 
