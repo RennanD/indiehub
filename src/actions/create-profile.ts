@@ -13,7 +13,7 @@ export async function createProfile(slug: string) {
     await db.collection("profiles").doc(slug).set({
       userId: session.user.id,
       slug,
-      createdAt: Timestamp.now(),
+      createdAt: Timestamp.now().toMillis(),
     });
 
     return true;

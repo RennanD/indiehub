@@ -2,7 +2,6 @@
 
 import {
   Eye,
-  FolderArchive,
   Github,
   Instagram,
   Linkedin,
@@ -24,14 +23,6 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import {
-  Empty,
-  EmptyContent,
-  EmptyDescription,
-  EmptyHeader,
-  EmptyMedia,
-  EmptyTitle,
-} from "@/components/ui/empty";
 import { Input } from "@/components/ui/input";
 import {
   InputGroup,
@@ -46,7 +37,9 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
+import type { UserData } from "@/server/get-user-data";
 import { AreaChartComponent } from "./area-chart";
+import { ProjectsCard } from "./projects-card";
 
 const PROJECTS = [
   {
@@ -72,7 +65,7 @@ const PROJECTS = [
   },
 ];
 
-export function MainSection() {
+export function MainSection({ userData }: { userData: UserData }) {
   const defaultDescription =
     "Lorem ipsum dolor sit amet consectetur adipisicing elit.";
 
@@ -110,7 +103,7 @@ export function MainSection() {
       </div>
 
       <div className="w-full relative max-w-7xl pb-32 mx-auto px-5 flex flex-col gap-10 md:flex-row">
-        <div className="flex flex-col gap-2 flex-2 max-w-3xl">
+        <div className="flex flex-col gap-3 flex-2 max-w-3xl">
           <Card>
             <CardHeader className="flex flex-col md:flex-row md:items-center gap-6 justify-between">
               <Avatar className="size-14">
@@ -246,25 +239,7 @@ export function MainSection() {
             </CardFooter>
           </Card>
 
-          <Card>
-            <Empty>
-              <EmptyHeader>
-                <EmptyMedia variant="icon">
-                  <FolderArchive className="w-4 h-4" />
-                </EmptyMedia>
-                <EmptyTitle>Nenhum Projeto</EmptyTitle>
-                <EmptyDescription>
-                  Você ainda não criou nenhum projeto. Comece criando seu
-                  primeiro projeto.
-                </EmptyDescription>
-              </EmptyHeader>
-              <EmptyContent>
-                <div className="flex gap-2">
-                  <Button>Criar Projeto</Button>
-                </div>
-              </EmptyContent>
-            </Empty>
-          </Card>
+          <ProjectsCard profileId={userData.slug} />
 
           <AreaChartComponent />
         </div>

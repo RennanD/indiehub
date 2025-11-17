@@ -1,3 +1,4 @@
+import imageCompression from "browser-image-compression";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -10,4 +11,19 @@ export function generateSlug(text: string) {
     .replace(/\s/g, "")
     .replace(/[!@#$%^&*()_+\-=[\]{};':"\\|,ˆ.<>/?]+/, "")
     .toLocaleLowerCase();
+}
+
+export async function compressImage(image: File) {
+  return new Promise((resolve, _reject) => {
+    const options = {
+      maxSizeMB: 0.2,
+      maxWidthOrHeight: 900,
+      useWebWorker: true,
+      fileType: "image/jpeg",
+    };
+
+    imageCompression(image, options).then((result) => {
+      resolve(result);
+    });
+  });
 }

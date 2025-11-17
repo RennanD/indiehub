@@ -1,8 +1,18 @@
+import { notFound } from "next/navigation";
 import { Gradient } from "@/components/ui/gradient";
 import { SparklesCore } from "@/components/ui/sparkles";
+import { getProfileData } from "@/server/get-profile-data";
 import { ProfileSection, ProjectsSection } from "./sections";
 
-export function ProfilePageTemplate() {
+export async function ProfilePageTemplate({ slug }: { slug: string }) {
+  console.log({ slug });
+
+  const profileData = await getProfileData(slug);
+
+  if (!profileData) {
+    return notFound();
+  }
+
   return (
     <div className="min-h-screen">
       {/* Gradient background */}

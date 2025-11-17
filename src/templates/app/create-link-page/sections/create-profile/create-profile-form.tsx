@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useController, useForm } from "react-hook-form";
 import { createProfile } from "@/actions/create-profile";
@@ -57,6 +57,11 @@ export function CreateProfileForm() {
   };
 
   async function onSubmit(data: CreateLinkSchema) {
+    if (data.slug === "me") {
+      setErrorMessage("O slug 'me' é reservado para o perfil do usuário");
+      return;
+    }
+
     const linkExists = await verifyLink(data.slug);
 
     if (linkExists) {
