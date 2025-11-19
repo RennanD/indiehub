@@ -42,8 +42,15 @@ export function ProjectsCard({
             <CardDescription>Projetos criados por você</CardDescription>
           </div>
           <CreateProjectModal profileId={profileId}>
-            <Button variant="outline" size="icon">
-              <Plus className="w-4 h-4" />
+            <Button variant="outline" className="hidden md:flex">
+              <p className="hidden md:block">Criar Projeto</p>
+              <Plus className="size-4" />
+            </Button>
+          </CreateProjectModal>
+
+          <CreateProjectModal profileId={profileId}>
+            <Button variant="outline" className="md:hidden">
+              <Plus className="size-4" />
             </Button>
           </CreateProjectModal>
         </CardHeader>

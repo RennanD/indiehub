@@ -1,7 +1,7 @@
 "use client";
 
 import {
-  Eye,
+  // Eye,
   Github,
   Instagram,
   Linkedin,
@@ -170,10 +170,10 @@ export function ProfileCard() {
           Salvar
         </Button>
 
-        <Button variant="secondary" className="md:hidden">
+        {/* <Button variant="secondary" className="md:hidden">
           <Eye className="w-4 h-4" />
           Preview
-        </Button>
+        </Button> */}
       </CardFooter>
     </Card>
   );
