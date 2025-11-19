@@ -32,6 +32,8 @@ import {
   createProjectSchema,
 } from "@/validations/create-project-schema";
 
+const SEO_DESCRIPTION_SIZE = 160;
+
 export function CreateProjectModal({
   children,
   profileId,
@@ -40,6 +42,7 @@ export function CreateProjectModal({
   profileId: string;
 }) {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [descriptionSizeError, setDescriptionSizeError] = useState<string>("");
   const router = useRouter();
 
   const form = useForm<CreateProjectSchema>({
@@ -57,6 +60,11 @@ export function CreateProjectModal({
     formState: { errors, isSubmitting },
   } = form;
 
+  const { field: descriptionField } = useController({
+    name: "description",
+    control: form.control,
+  });
+
   const { field: thumbnailField } = useController({
     name: "thumbnail",
     control: form.control,
@@ -73,6 +81,18 @@ export function CreateProjectModal({
       setPreviewUrl(null);
     }
   };
+
+  function handleChangeDescription(value: string) {
+    if (value.length < SEO_DESCRIPTION_SIZE) {
+      setDescriptionSizeError("");
+    }
+
+    if (value.length > SEO_DESCRIPTION_SIZE) {
+      setDescriptionSizeError("O limite de caracteres foi atingido");
+    }
+
+    descriptionField.onChange(value);
+  }
 
   async function onSubmit(data: CreateProjectSchema) {
     const compressedImage = await compressImage(data.thumbnail);
@@ -145,17 +165,23 @@ export function CreateProjectModal({
                 <InputGroupTextarea
                   id="description"
                   placeholder="Conte sobre seu projeto"
-                  {...form.register("description")}
+                  onChange={(e) => handleChangeDescription(e.target.value)}
+                  value={descriptionField.value}
                 />
                 <InputGroupAddon align="block-end">
-                  <InputGroupText className="text-muted-foreground text-xs">
-                    0 caracteres restantes
+                  <InputGroupText
+                    className={cn("text-muted-foreground text-xs", {
+                      "text-destructive": descriptionSizeError,
+                    })}
+                  >
+                    {SEO_DESCRIPTION_SIZE - descriptionField.value.length}{" "}
+                    caracteres restantes
                   </InputGroupText>
                 </InputGroupAddon>
               </InputGroup>
-              {errors.description && (
+              {(errors.description || descriptionSizeError) && (
                 <span className="text-destructive text-sm" role="alert">
-                  {errors.description.message}
+                  {errors.description?.message || descriptionSizeError}
                 </span>
               )}
             </div>

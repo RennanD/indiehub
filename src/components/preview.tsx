@@ -1,7 +1,8 @@
 import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
+import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "./ui/button";
-import { Card, CardContent } from "./ui/card";
+import { Card, CardContent, CardFooter } from "./ui/card";
 
 const SOCIAL_LINKS = [
   {
@@ -33,9 +34,10 @@ interface PreviewProps {
   name: string;
   description: string;
   projects: {
-    title: string;
+    name: string;
     description: string;
-    href: string;
+    link: string;
+    thumbnail: string;
   }[];
 }
 
@@ -70,12 +72,21 @@ export function Preview({ name, description, projects }: PreviewProps) {
 
       <div className="grid grid-cols-1 gap-4">
         {projects.map((project) => (
-          <Card key={project.title}>
-            <CardContent className="flex flex-col gap-2">
-              <strong className="text-lg font-bold">{project.title}</strong>
-              <p className="text-sm text-muted-foreground">
-                {project.description}
-              </p>
+          <Card
+            key={project.name}
+            className="p-0 overflow-hidden min-h-[200px]"
+          >
+            <CardContent className="relative flex justify-end p-0 flex-col h-full gap-2 overflow-hidden">
+              <Image
+                src={project.thumbnail}
+                alt={project.name}
+                fill
+                className="object-cover"
+              />
+              <CardFooter className="flex flex-col bg-black/80 py-2 items-start gap-1 relative z-10">
+                <strong className="text-sm font-bold">{project.name}</strong>
+                <p className="text-xs">{project.description}</p>
+              </CardFooter>
             </CardContent>
           </Card>
         ))}

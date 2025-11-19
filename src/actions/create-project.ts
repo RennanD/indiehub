@@ -31,7 +31,7 @@ export async function createProject(data: CreateProjectSchema) {
 
     await storageRef.save(buffer);
 
-    const imageUrl = storageRef.publicUrl();
+    const imageUrl = storageRef.name;
 
     await db
       .collection("projects")

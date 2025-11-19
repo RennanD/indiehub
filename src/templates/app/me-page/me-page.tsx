@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import { getProjects } from "@/server/get-profile-data";
 import { getUserData } from "@/server/get-user-data";
 import { MainSection, TopBannerSection } from "./sections";
 
@@ -7,10 +8,13 @@ export async function MePageTemplate() {
 
   if (!userData) redirect("/");
 
+  const projects = await getProjects(userData.slug);
+
   return (
     <main>
       <TopBannerSection />
       <MainSection
+        projects={projects}
         userData={{
           userId: userData.userId,
           slug: userData.slug,

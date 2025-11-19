@@ -13,7 +13,7 @@ export function Android({ children, size = "md" }: AndroidProps) {
   return (
     <div
       className={cn(
-        "relative mx-auto border-border overflow-hidden bg-background border-14 rounded-[2.5rem] shadow-xl",
+        "relative mx-auto border-border overflow-hidden overflow-y-scroll pb-20 bg-background border-14 rounded-[2.5rem] shadow-xl",
         sizeClass[size],
       )}
     >
