@@ -1,39 +1,23 @@
-import { LogOut, TrendingUp } from "lucide-react";
+import { LogOut, Pencil, Share, TrendingUp } from "lucide-react";
 import { manageAuth } from "@/actions/manage-auth";
 import { Preview } from "@/components/preview";
 import { Android } from "@/components/ui/android";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
 import { getDownloadURLFromPath } from "@/lib/firebase";
 import type { ProjectData } from "@/server/get-profile-data";
 import type { UserData } from "@/server/get-user-data";
-import { AreaChartComponent } from "./area-chart";
-import { ProfileCard } from "./profile-card";
+import { BarChartComponent } from "./bar-chart";
+import { EditProfileModal } from "./edit-profile-modal";
 import { ProjectsCard } from "./projects-card";
 
-// const PROJECTS = [
-//   {
-//     title: "Project 1",
-//     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-//     href: "https://indiehub.site/project-1",
-//   },
-//   {
-//     title: "Project 2",
-//     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-//     href: "https://indiehub.site/project-2",
-//   },
-
-//   {
-//     title: "Project 3",
-//     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-//     href: "https://indiehub.site/project-3",
-//   },
-//   {
-//     title: "Project 4",
-//     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-//     href: "https://indiehub.site/project-4",
-//   },
-// ];
+const DEFAULT_DESCRIPTION = "Uma descrição bem legal aqui...";
 
 export async function MainSection({
   userData,
@@ -73,20 +57,69 @@ export async function MainSection({
 
       <div className="w-full relative max-w-7xl pb-32 mx-auto px-5 flex flex-col gap-10 md:flex-row">
         <div className="flex flex-col gap-3 flex-2 max-w-3xl">
-          <ProfileCard />
+          <Card>
+            <CardHeader className="flex flex-col md:flex-row md:items-center gap-6 justify-between">
+              <Avatar className="size-14">
+                <AvatarImage
+                  sizes="100%"
+                  className="object-cover"
+                  src={userData.avatar}
+                  alt={userData.name}
+                />
+                <AvatarFallback>{userData.name.charAt(0)}</AvatarFallback>
+              </Avatar>
+
+              <div className="flex w-full items-center gap-10 flex-1 justify-between">
+                <div className="flex flex-col">
+                  <h3 className="text-lg font-medium">{userData.name}</h3>
+                  <p className="text-sm text-muted-foreground">
+                    https://indiehub.site/{userData.slug}
+                  </p>
+                </div>
+                <Button variant="outline" size="icon">
+                  <Share className="w-4 h-4" />
+                </Button>
+              </div>
+            </CardHeader>
+
+            <CardContent>
+              <div className="flex flex-col gap-4">
+                <blockquote className="mt-6 border-primary border-l-2 pl-6 italic">
+                  &quot;{userData.description ?? DEFAULT_DESCRIPTION}&quot;
+                </blockquote>
+
+                <CardFooter className="space-x-2 px-0 pt-6">
+                  <EditProfileModal
+                    userData={{
+                      profileId: userData.slug,
+                      name: userData.name,
+                      avatar: userData.avatar,
+                      description: userData.description,
+                    }}
+                  >
+                    <Button>
+                      <Pencil className="w-4 h-4" />
+                      Editar Perfil
+                    </Button>
+                  </EditProfileModal>
+                </CardFooter>
+              </div>
+            </CardContent>
+          </Card>
           <ProjectsCard
             profileId={userData.slug}
             projects={projectsWithThumbnail}
           />
 
-          <AreaChartComponent />
+          <BarChartComponent />
         </div>
 
         <div className="flex-col sticky top-20 gap-2 flex-1 hidden md:flex">
           <Android size="lg">
             <Preview
-              name="John Doe"
-              description="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+              avatar={userData.avatar}
+              name={userData.name}
+              description={userData.description ?? DEFAULT_DESCRIPTION}
               projects={projectsWithThumbnail}
             />
           </Android>

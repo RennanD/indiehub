@@ -12,6 +12,10 @@ export async function createProfile(slug: string) {
   try {
     await db.collection("profiles").doc(slug).set({
       userId: session.user.id,
+      name: session.user.name,
+      description: null,
+      hasAvatarUpdated: false,
+      avatar: session.user.image,
       slug,
       createdAt: Timestamp.now().toMillis(),
     });

@@ -19,17 +19,17 @@ import {
 export const description = "A linear area chart";
 
 const chartData = [
-  { month: "January", desktop: 186 },
-  { month: "February", desktop: 305 },
-  { month: "March", desktop: 237 },
-  { month: "April", desktop: 73 },
-  { month: "May", desktop: 209 },
-  { month: "June", desktop: 214 },
+  { date: "02", views: 186 },
+  { date: "03", views: 305 },
+  { date: "04", views: 237 },
+  { date: "06", views: 73 },
+  { month: "07", views: 209 },
+  { month: "08", views: 214 },
 ];
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
+  views: {
+    label: "Visualizações",
     color: "var(--chart-1)",
   },
 } satisfies ChartConfig;
@@ -55,7 +55,7 @@ export function AreaChartComponent() {
           >
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="month"
+              dataKey="date"
               tickLine={false}
               axisLine={false}
               tickMargin={8}
@@ -66,11 +66,11 @@ export function AreaChartComponent() {
               content={<ChartTooltipContent indicator="dot" hideLabel />}
             />
             <Area
-              dataKey="desktop"
+              dataKey="views"
               type="linear"
-              fill="var(--color-desktop)"
+              fill="var(--color-views)"
               fillOpacity={0.4}
-              stroke="var(--color-desktop)"
+              stroke="var(--color-views)"
             />
           </AreaChart>
         </ChartContainer>

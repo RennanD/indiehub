@@ -32,7 +32,13 @@ export async function ProfilePageTemplate({ slug }: { slug: string }) {
 
       <main className="flex flex-col  pt-5 pb-20 md:pt-20 w-full max-w-7xl mx-auto px-5 relative">
         <div className="flex flex-col gap-10 md:flex-row justify-between md:gap-20">
-          <ProfileSection />
+          <ProfileSection
+            profileData={{
+              name: profileData.name,
+              description: profileData.description,
+              avatar: profileData.avatar,
+            }}
+          />
           <ProjectsSection projects={projects} />
         </div>
       </main>

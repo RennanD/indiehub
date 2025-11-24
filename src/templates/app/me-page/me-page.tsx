@@ -16,6 +16,9 @@ export async function MePageTemplate() {
       <MainSection
         projects={projects}
         userData={{
+          name: userData.name,
+          description: userData.description,
+          avatar: userData.avatar,
           userId: userData.userId,
           slug: userData.slug,
         }}

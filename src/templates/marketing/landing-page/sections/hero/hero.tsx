@@ -13,25 +13,33 @@ import {
 
 const PROJECTS = [
   {
-    title: "Project 1",
+    name: "Project 1",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    href: "https://indiehub.site/project-1",
+    thumbnail:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGdHua81yyP72jTtK-L9lTKq4Zybc7I_r2nQ&s",
+    link: "https://indiehub.site/project-1",
   },
   {
-    title: "Project 2",
+    name: "Project 2",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    href: "https://indiehub.site/project-2",
+    thumbnail:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGdHua81yyP72jTtK-L9lTKq4Zybc7I_r2nQ&s",
+    link: "https://indiehub.site/project-2",
   },
 
   {
-    title: "Project 3",
+    name: "Project 3",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    href: "https://indiehub.site/project-3",
+    thumbnail:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGdHua81yyP72jTtK-L9lTKq4Zybc7I_r2nQ&s",
+    link: "https://indiehub.site/project-3",
   },
   {
-    title: "Project 4",
+    name: "Project 4",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    href: "https://indiehub.site/project-4",
+    thumbnail:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGdHua81yyP72jTtK-L9lTKq4Zybc7I_r2nQ&s",
+    link: "https://indiehub.site/project-4",
   },
 ];
 

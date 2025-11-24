@@ -1,10 +1,13 @@
 import "server-only";
 
 import { auth } from "@/lib/auth";
-import { db } from "@/lib/firebase";
+import { db, getDownloadURLFromPath } from "@/lib/firebase";
 
 export type UserData = {
   userId: string;
+  name: string;
+  description: string;
+  avatar: string;
   slug: string;
 };
 
@@ -22,5 +25,13 @@ export async function getUserData() {
 
   const profile = snapshot.docs[0].data();
 
-  return profile as UserData;
+  return {
+    userId: profile.userId,
+    name: profile.name,
+    description: profile.description,
+    avatar: profile.hasAvatarUpdated
+      ? await getDownloadURLFromPath(profile.avatar)
+      : profile.avatar,
+    slug: profile.slug,
+  } as UserData;
 }

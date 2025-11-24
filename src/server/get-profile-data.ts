@@ -1,8 +1,12 @@
 import type { Timestamp } from "firebase-admin/firestore";
-import { db } from "@/lib/firebase";
+import { db, getDownloadURLFromPath } from "@/lib/firebase";
 
 type ProfileData = {
   slug: string;
+  name: string;
+  description: string;
+  avatar: string;
+  hasAvatarUpdated: boolean;
   userId: string;
   createdAt: Timestamp;
 };
@@ -10,7 +14,19 @@ type ProfileData = {
 export async function getProfileData(slug: string) {
   const snapshot = await db.collection("profiles").doc(slug).get();
 
-  return snapshot.data() as ProfileData;
+  const profile = snapshot.data();
+
+  if (!profile) return null;
+
+  return {
+    userId: profile.userId,
+    name: profile.name,
+    description: profile.description,
+    avatar: profile.hasAvatarUpdated
+      ? await getDownloadURLFromPath(profile.avatar)
+      : profile.avatar,
+    slug: profile.slug,
+  } as ProfileData;
 }
 
 export type ProjectData = {
