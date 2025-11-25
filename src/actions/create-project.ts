@@ -34,7 +34,7 @@ export async function createProject(data: CreateProjectSchema) {
     const imageUrl = storageRef.name;
 
     await db
-      .collection("projects")
+      .collection("profiles")
       .doc(data.profileId)
       .collection("projects")
       .doc(generatedId)

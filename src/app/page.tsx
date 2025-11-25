@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { LandingPage } from "@/templates/marketing/landing-page";
 
 export const metadata: Metadata = {
-  title: "IndieHub",
+  title: "Mostre seus projetos para o mundo | IndieHub",
   description:
-    "IndieHub - Mostre seus projetos para o mundo e descubra quais estão crescendo.",
+    "Crie sua página e comece a compartilhar seus projetos e acompanhe as métricas detalhadas de cada um.",
   alternates: {
     canonical: "https://indiehub.site",
   },
