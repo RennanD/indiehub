@@ -17,13 +17,13 @@ function slugify(text: string) {
   return text
     .toString()
     .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/[^\w\-]+/g, '')
-    .replace(/\-\-+/g, '-')
-    .replace(/^-+/, '')
-    .replace(/-+$/, '');
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/[^\w-]+/g, "")
+    .replace(/--+/g, "-")
+    .replace(/^-+/, "")
+    .replace(/-+$/, "");
 }
 
 export async function createProject(data: CreateProjectSchema) {
@@ -32,8 +32,6 @@ export async function createProject(data: CreateProjectSchema) {
   if (!session?.user || !session.user.id) return false;
 
   try {
-    console.log({ data });
-
     const generatedId = crypto.randomUUID();
     const projectSlug = slugify(data.name);
 
