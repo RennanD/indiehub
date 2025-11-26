@@ -1,4 +1,4 @@
-import { FolderArchive, Plus } from "lucide-react";
+import { FolderArchive, Plus, Share2 } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/empty";
 import type { ProjectData } from "@/server/get-profile-data";
 import { CreateProjectModal } from "./create-project-modal";
+import { ShareProjectModal } from "./share-project-modal";
 
 export function ProjectsCard({
   profileId,
@@ -65,7 +66,18 @@ export function ProjectsCard({
             <CarouselContent>
               {projects.map((project) => (
                 <CarouselItem key={project.id} className="pt-1 md:basis-1/2">
-                  <Card className="bg-accent pt-0 overflow-hidden h-full">
+                  <Card className="bg-accent pt-0 overflow-hidden h-full group relative">
+                    <div className="absolute top-2 right-2 z-10">
+                      <ShareProjectModal project={project} profileId={profileId}>
+                        <Button
+                          size="icon"
+                          variant="secondary"
+                          className="h-8 w-8 rounded-full shadow-sm opacity-80 hover:opacity-100 transition-opacity"
+                        >
+                          <Share2 className="size-4" />
+                        </Button>
+                      </ShareProjectModal>
+                    </div>
                     <CardHeader className="w-full h-[200px] relative">
                       <Image
                         src={project.thumbnail}

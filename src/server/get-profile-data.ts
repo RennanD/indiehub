@@ -35,6 +35,8 @@ export type ProjectData = {
   description: string;
   thumbnail: string;
   link: string;
+  slug?: string;
+  profileShortLink?: string;
   createdAt: Timestamp;
 };
 
@@ -45,5 +47,8 @@ export async function getProjects(profileId: string) {
     .collection("projects")
     .get();
 
-  return snapshot.docs.map((doc) => doc.data()) as ProjectData[];
+  return snapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  })) as ProjectData[];
 }

@@ -78,7 +78,7 @@ export function Preview({ name, avatar, description, projects }: PreviewProps) {
 
       <div className="flex flex-col items-center gap-4">
         <h2 className="text-lg font-bold">Conheça meus projetos</h2>
-        <div className="grid grid-cols-1 gap-4">
+        <div className="grid grid-cols-1 w-full gap-4">
           {projects.map((project) => (
             <Card
               key={project.name}
