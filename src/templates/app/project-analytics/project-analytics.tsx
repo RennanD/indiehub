@@ -1,11 +1,15 @@
 import { notFound } from "next/navigation";
-import { getProjectAnalytics } from "@/actions/project-analytics";
+import { getProjectShortLinks } from "@/actions/project-analytics";
 import { getProjectData } from "@/server/get-project-data";
 // import {
 //   BarChartProject,
 //   type SourceOriginChartData,
 // } from "./bar-chart-project";
-import { EventsTable, ProjectDetailsSection, SourceOriginChart } from "./sections";
+import {
+  EventsTable,
+  ProjectDetailsSection,
+  SourceOriginChart,
+} from "./sections";
 
 const COLORS = {
   facebook: "var(--color-blue-700)",
@@ -28,23 +32,16 @@ export async function ProjectAnalyticsTemplate({
 
   if (!projectData) notFound();
 
-  const events = await getProjectAnalytics(profileSlug, projectId);
+  const shortLinks = await getProjectShortLinks(profileSlug, projectId);
 
-  // Agrupar por source
-  const sourceCount = events.reduce(
-    (acc, event) => {
-      const source = event.source || "direto";
-      acc[source] = (acc[source] || 0) + 1;
-      return acc;
-    },
-    {} as Record<string, number>,
-  );
-
-  const sourceChartData = Object.entries(sourceCount)
-    .map(([source, count]) => ({
-      source,
-      visitors: count,
-      fill: COLORS[source as keyof typeof COLORS],
+  const sourceChartData = shortLinks
+    .map((link) => ({
+      source: link.utmParameters?.source || "direto",
+      visitors: link.totalViews || 0,
+      fill:
+        COLORS[
+          (link.utmParameters?.source as keyof typeof COLORS) || "direto"
+        ] || "var(--color-gray-500)",
     }))
     .sort((a, b) => b.visitors - a.visitors);
 
