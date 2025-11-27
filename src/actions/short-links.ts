@@ -193,6 +193,18 @@ export async function trackLinkEvent(
         referer: referer || "direct",
       });
 
+    // Increment totalViews on the short link document as well
+    await db
+      .collection("profiles")
+      .doc(profileId)
+      .collection("projects")
+      .doc(projectId)
+      .collection("short_links")
+      .doc(code)
+      .update({
+        totalViews: FieldValue.increment(1),
+      });
+
     // Increment totalViews on the project document
     await db
       .collection("profiles")

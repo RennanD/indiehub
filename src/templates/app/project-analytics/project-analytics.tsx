@@ -5,7 +5,7 @@ import { getProjectData } from "@/server/get-project-data";
 //   BarChartProject,
 //   type SourceOriginChartData,
 // } from "./bar-chart-project";
-import { ProjectDetailsSection, SourceOriginChart } from "./sections";
+import { EventsTable, ProjectDetailsSection, SourceOriginChart } from "./sections";
 
 const COLORS = {
   facebook: "var(--color-blue-700)",
@@ -58,8 +58,9 @@ export async function ProjectAnalyticsTemplate({
         />
 
         {/* Gráfico de Barras */}
-        <div className="col-span-2 lg:col-span-2">
+        <div className="col-span-2 lg:col-span-2 space-y-6 sticky top-4 h-fit">
           <SourceOriginChart data={sourceChartData} />
+          <EventsTable projectId={projectId} profileSlug={profileSlug} />
         </div>
       </div>
     </div>

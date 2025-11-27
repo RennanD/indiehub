@@ -1,6 +1,8 @@
+"use server";
+
 import { db } from "@/lib/firebase";
 
-type LinkEvent = {
+export type LinkEvent = {
   shortLinkId: string;
   source: string;
   timestamp: number;
@@ -26,13 +28,29 @@ export async function getProjectAnalytics(
   const events = snapshot.docs.map((doc) => doc.data());
 
   return events as LinkEvent[];
+}
 
-  // // Formatar para o gráfico
-  // return Object.entries(sourceCount)
-  //   .map(([source, count]) => ({
-  //     source,
-  //     visitors: count,
-  //     fill: COLORS[source as keyof typeof COLORS],
-  //   }))
-  //   .sort((a, b) => b.visitors - a.visitors);
+export async function getProjectAnalyticsPaginated(
+  profileId: string,
+  projectId: string,
+  pageSize: number = 10,
+  lastTimestamp?: number,
+) {
+  let query = db
+    .collection("profiles")
+    .doc(profileId)
+    .collection("projects")
+    .doc(projectId)
+    .collection("link_events")
+    .orderBy("timestamp", "desc")
+    .limit(pageSize);
+
+  if (lastTimestamp) {
+    query = query.startAfter(lastTimestamp);
+  }
+
+  const snapshot = await query.get();
+  const events = snapshot.docs.map((doc) => doc.data());
+
+  return events as LinkEvent[];
 }
