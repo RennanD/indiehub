@@ -37,6 +37,7 @@ export type ProjectData = {
   link: string;
   slug?: string;
   profileShortLink?: string;
+  totalViews?: number;
   createdAt: Timestamp;
 };
 

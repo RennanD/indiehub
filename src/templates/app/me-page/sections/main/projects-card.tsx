@@ -1,5 +1,6 @@
-import { FolderArchive, Plus, Share2 } from "lucide-react";
+import { Eye, FolderArchive, Plus, Share2 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -87,10 +88,32 @@ export function ProjectsCard({
                       />
                     </CardHeader>
                     <CardContent className="space-y-4">
-                      <strong className="text-sm font-bold">
-                        {project.name}
-                      </strong>
-                      <p className="text-xs">{project.description}</p>
+                      <div>
+                        <strong className="text-sm font-bold">
+                          {project.name}
+                        </strong>
+                        <p className="text-xs line-clamp-2 text-muted-foreground">
+                          {project.description}
+                        </p>
+                      </div>
+
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                          <Eye className="size-3" />
+                          <span>{project.totalViews || 0} visualizações</span>
+                        </div>
+
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="h-7 text-xs"
+                          asChild
+                        >
+                          <Link href={`/me/projects/${project.id}`}>
+                            Ver Detalhes
+                          </Link>
+                        </Button>
+                      </div>
                     </CardContent>
                   </Card>
                 </CarouselItem>

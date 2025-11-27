@@ -1,6 +1,6 @@
 "use server";
 
-import { Timestamp } from "firebase-admin/firestore";
+import { FieldValue, Timestamp } from "firebase-admin/firestore";
 import { nanoid } from "nanoid";
 import { auth } from "@/lib/auth";
 import { db } from "@/lib/firebase";
@@ -191,6 +191,16 @@ export async function trackLinkEvent(
         ip: rawIp || "unknown",
         location: locationReadable,
         referer: referer || "direct",
+      });
+
+    // Increment totalViews on the project document
+    await db
+      .collection("profiles")
+      .doc(profileId)
+      .collection("projects")
+      .doc(projectId)
+      .update({
+        totalViews: FieldValue.increment(1),
       });
   } catch (error) {
     console.error("[trackLinkEvent] Error tracking link event:", error);
