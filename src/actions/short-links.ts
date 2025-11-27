@@ -15,6 +15,7 @@ export type ShortLink = {
   code: string;
   projectId: string;
   profileId: string;
+  totalViews: number;
   originalUrl: string;
   projectSlug: string;
   utmParameters: UTMParameters;
@@ -30,6 +31,23 @@ export async function createShortLink(
 ) {
   const session = await auth();
   if (!session?.user?.id) return null;
+
+  // Check if a link with the same UTM parameters already exists for this project
+  const existingLinkSnapshot = await db
+    .collection("profiles")
+    .doc(profileId)
+    .collection("projects")
+    .doc(projectId)
+    .collection("short_links")
+    .where("utmParameters.source", "==", utmParameters.source)
+    .where("utmParameters.medium", "==", utmParameters.medium)
+    .where("utmParameters.campaign", "==", utmParameters.campaign)
+    .limit(1)
+    .get();
+
+  if (!existingLinkSnapshot.empty) {
+    return existingLinkSnapshot.docs[0].id;
+  }
 
   let code = nanoid(8);
   let exists = await db.collection("lookup_codes").doc(code).get();
@@ -51,6 +69,7 @@ export async function createShortLink(
     profileId,
     originalUrl,
     projectSlug,
+    totalViews: 0,
     utmParameters,
     createdAt: Timestamp.now().toMillis(),
   };

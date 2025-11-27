@@ -121,7 +121,6 @@ export function EventsTable({
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>ID</TableHead>
                 <TableHead>Origem</TableHead>
                 <TableHead>Localização</TableHead>
                 <TableHead>Dispositivo</TableHead>
@@ -147,7 +146,6 @@ export function EventsTable({
               ) : (
                 events.map((event, index) => (
                   <TableRow key={`${event.timestamp}-${index}`}>
-                    <TableCell>{event.shortLinkId || "-"}</TableCell>
                     <TableCell>{event.source || "Direto"}</TableCell>
                     <TableCell>{event.location || "-"}</TableCell>
                     <TableCell title={event.userAgent}>
