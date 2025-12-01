@@ -46,7 +46,9 @@ export async function ProfilePageTemplate({ slug }: { slug: string }) {
       </main>
 
       <Button className="absolute bottom-5 right-1/2 translate-x-1/2">
-        <Link href={`/`}>Junte-se a {profileData.slug} no IndieHub</Link>
+        <Link target="_blank" rel="noopener noreferrer" href={`/`}>
+          Junte-se a {profileData.slug} no IndieHub
+        </Link>
       </Button>
     </div>
   );
