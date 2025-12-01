@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Gradient } from "@/components/ui/gradient";
@@ -45,10 +44,10 @@ export async function ProfilePageTemplate({ slug }: { slug: string }) {
         </div>
       </main>
 
-      <Button className="absolute bottom-5 right-1/2 translate-x-1/2">
-        <Link target="_blank" rel="noopener noreferrer" href={`/`}>
+      <Button asChild className="absolute bottom-5 right-1/2 translate-x-1/2">
+        <a target="_blank" rel="noopener noreferrer" href={`/`}>
           Junte-se a {profileData.slug} no IndieHub
-        </Link>
+        </a>
       </Button>
     </div>
   );
