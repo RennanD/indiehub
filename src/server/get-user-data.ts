@@ -7,6 +7,7 @@ export type UserData = {
   userId: string;
   name: string;
   description: string;
+  totalViews: number;
   avatar: string;
   slug: string;
 };
@@ -29,6 +30,7 @@ export async function getUserData() {
     userId: profile.userId,
     name: profile.name,
     description: profile.description,
+    totalViews: profile.totalViews,
     avatar: profile.hasAvatarUpdated
       ? await getDownloadURLFromPath(profile.avatar)
       : profile.avatar,

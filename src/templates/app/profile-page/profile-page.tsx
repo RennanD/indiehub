@@ -1,4 +1,6 @@
+import { headers } from "next/headers";
 import { notFound } from "next/navigation";
+import { trackProfileEvent } from "@/actions/profile-analytics";
 import { Button } from "@/components/ui/button";
 import { Gradient } from "@/components/ui/gradient";
 import { SparklesCore } from "@/components/ui/sparkles";
@@ -10,6 +12,26 @@ export async function ProfilePageTemplate({ slug }: { slug: string }) {
 
   if (!profileData) {
     return notFound();
+  }
+
+  // Tracking
+  const headersList = await headers();
+  const userAgent = headersList.get("user-agent") || "unknown";
+  const referer = headersList.get("referer") || "direct";
+  const ip =
+    headersList.get("x-forwarded-for") ||
+    headersList.get("x-real-ip") ||
+    "unknown";
+
+  try {
+    await trackProfileEvent({
+      userAgent,
+      ip,
+      referer,
+      profileId: profileData.slug,
+    });
+  } catch (err) {
+    console.error("[ProfilePage] Error calling trackProfileEvent", err);
   }
 
   const projects = await getProjects(slug);

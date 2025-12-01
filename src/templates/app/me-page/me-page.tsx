@@ -17,6 +17,7 @@ export async function MePageTemplate() {
         projects={projects}
         userData={{
           name: userData.name,
+          totalViews: userData.totalViews,
           description: userData.description,
           avatar: userData.avatar,
           userId: userData.userId,

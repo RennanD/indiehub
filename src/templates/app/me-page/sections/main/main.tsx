@@ -41,7 +41,7 @@ export async function MainSection({
           <CardContent className="flex items-center justify-between">
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="text-2xl font-bold">1000</h1>
+                <h1 className="text-2xl font-bold">{userData.totalViews}</h1>
                 <TrendingUp className="w-4 h-4 text-primary" />
               </div>
               <p className="text-sm text-muted-foreground">
