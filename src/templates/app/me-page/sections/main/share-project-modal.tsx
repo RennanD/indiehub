@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import type { ProjectData } from "@/server/get-profile-data";
+import { CONSTANTS } from "@/shared/constants";
 
 const SOCIAL_NETWORKS = [
   {
@@ -86,11 +87,6 @@ export function ShareProjectModal({
   const [, setLoading] = useState(false);
   const [processing, setProcessing] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [origin, setOrigin] = useState("");
-
-  useEffect(() => {
-    setOrigin(window.location.origin);
-  }, []);
 
   const loadLinks = useCallback(async () => {
     setLoading(true);
@@ -155,7 +151,7 @@ export function ShareProjectModal({
   }
 
   function copyToClipboard(code: string, slug: string) {
-    const url = `${origin}/l/${code}/${slug}`;
+    const url = `${CONSTANTS.basePath}/l/${code}/${slug}`;
     navigator.clipboard.writeText(url);
 
     toast.success("Link copiado!", {

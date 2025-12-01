@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Button } from "@/components/ui/button";
 import { Gradient } from "@/components/ui/gradient";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { getProfileData, getProjects } from "@/server/get-profile-data";
@@ -14,7 +16,7 @@ export async function ProfilePageTemplate({ slug }: { slug: string }) {
   const projects = await getProjects(slug);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
       {/* Gradient background */}
       <Gradient position="fixed" />
 
@@ -42,6 +44,10 @@ export async function ProfilePageTemplate({ slug }: { slug: string }) {
           <ProjectsSection projects={projects} />
         </div>
       </main>
+
+      <Button className="absolute bottom-5 right-1/2 translate-x-1/2">
+        <Link href={`/`}>Junte-se a {profileData.slug} no IndieHub</Link>
+      </Button>
     </div>
   );
 }

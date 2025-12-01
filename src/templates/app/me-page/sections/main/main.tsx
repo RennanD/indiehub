@@ -1,4 +1,4 @@
-import { LogOut, Pencil, Share, TrendingUp } from "lucide-react";
+import { LogOut, Pencil, TrendingUp } from "lucide-react";
 import { manageAuth } from "@/actions/manage-auth";
 import { Preview } from "@/components/preview";
 import { Android } from "@/components/ui/android";
@@ -13,9 +13,10 @@ import {
 import { getDownloadURLFromPath } from "@/lib/firebase";
 import type { ProjectData } from "@/server/get-profile-data";
 import type { UserData } from "@/server/get-user-data";
-import { BarChartComponent } from "./bar-chart";
+// import { BarChartComponent } from "./bar-chart";
 import { EditProfileModal } from "./edit-profile-modal";
 import { ProjectsCard } from "./projects-card";
+import { ShareProfileButton } from "./share-profile-button";
 
 const DEFAULT_DESCRIPTION = "Uma descrição bem legal aqui...";
 
@@ -76,9 +77,7 @@ export async function MainSection({
                     https://indiehub.site/{userData.slug}
                   </p>
                 </div>
-                <Button variant="outline" size="icon">
-                  <Share className="w-4 h-4" />
-                </Button>
+                <ShareProfileButton slug={userData.slug} />
               </div>
             </CardHeader>
 
@@ -111,7 +110,7 @@ export async function MainSection({
             projects={projectsWithThumbnail}
           />
 
-          <BarChartComponent />
+          {/* <BarChartComponent /> */}
         </div>
 
         <div className="flex-col sticky top-20 gap-2 flex-1 hidden md:flex">

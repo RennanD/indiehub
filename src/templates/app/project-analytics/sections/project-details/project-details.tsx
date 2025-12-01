@@ -1,5 +1,6 @@
-import { Eye, Pencil } from "lucide-react";
+import { ArrowLeft, Eye } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -22,16 +23,17 @@ export function ProjectDetailsSection({
   totalViews,
 }: ProjectDetailsSectionProps) {
   return (
-    <Card className="w-full">
-      <CardHeader className="flex items-center justify-between">
+    <Card className="w-full h-fit lg:sticky lg:top-5">
+      <CardHeader className="flex items-center gap-2">
+        <Button asChild variant="ghost" size="icon">
+          <Link href={`/me`}>
+            <ArrowLeft />
+          </Link>
+        </Button>
         <div>
           <CardTitle>Detalhes do Projeto</CardTitle>
           <CardDescription>Análise de tráfego e visualizações</CardDescription>
         </div>
-
-        <Button variant="outline" size="icon">
-          <Pencil />
-        </Button>
       </CardHeader>
 
       <CardContent>
