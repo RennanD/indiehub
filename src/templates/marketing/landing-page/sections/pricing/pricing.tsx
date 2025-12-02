@@ -6,10 +6,11 @@ import { Button } from "@/components/ui/button";
 const plans = [
   {
     name: "Personal",
-    price: "R$39,00",
+    originalPrice: "R$39,00",
+    price: "R$25,90",
     description: "Perfeito para começar",
     features: [
-      "1 projeto",
+      "5 projetos",
       "Analytics de perfil e projeto",
       "Links compartilháveis",
       "UTMs automáticas",
@@ -18,10 +19,11 @@ const plans = [
   },
   {
     name: "Hacker",
-    price: "R$99,00",
+    originalPrice: "R$99,00",
+    price: "R$75,00",
     description: "Para makers que querem escalar",
     features: [
-      "10 projetos",
+      "Projetos ilimitados",
       "Analytics de perfil e projeto",
       "Links compartilháveis",
       "UTMs automáticas",
@@ -89,6 +91,9 @@ export function PricingSection() {
                   {plan.description}
                 </p>
                 <div className="flex items-baseline gap-2">
+                  <small className="text-sm text-red-400 line-through">
+                    {plan.originalPrice}
+                  </small>
                   <span className="text-4xl font-bold">{plan.price}</span>
                 </div>
                 <p className="text-muted-foreground mt-2 text-sm mb-4">
@@ -96,15 +101,14 @@ export function PricingSection() {
                 </p>
               </div>
 
-              <Link href="/auth/signup">
-                <Button
-                  className="w-full mb-8"
-                  variant={plan.popular ? "default" : "outline"}
-                  size="lg"
-                >
-                  Começar gratuitamente
-                </Button>
-              </Link>
+              <Button
+                className="w-full mb-8"
+                variant={plan.popular ? "default" : "outline"}
+                size="lg"
+                asChild
+              >
+                <Link href="/auth/signup">Começar gratuitamente</Link>
+              </Button>
 
               <div className="space-y-4">
                 {plan.features.map((feature) => (

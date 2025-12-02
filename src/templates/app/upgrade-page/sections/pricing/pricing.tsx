@@ -1,15 +1,17 @@
 import { Check } from "lucide-react";
-import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { CONSTANTS } from "@/shared/constants";
+import { UpgradePlanButton } from "./upgrade-plan-button";
 
 const plans = [
   {
     name: "Personal",
-    price: "R$39,00",
+    originalPrice: "R$39,00",
+    price: "R$25,90",
+    priceId: CONSTANTS.personalPriceId,
     description: "Perfeito para começar",
     features: [
-      "1 projeto",
+      "5 projeto",
       "Analytics de perfil e projeto",
       "Links compartilháveis",
       "UTMs automáticas",
@@ -18,10 +20,12 @@ const plans = [
   },
   {
     name: "Hacker",
-    price: "R$99,00",
+    originalPrice: "R$99,00",
+    price: "R$75,90",
+    priceId: CONSTANTS.hackerPriceId,
     description: "Para makers que querem escalar",
     features: [
-      "10 projetos",
+      "Projetos ilimitados",
       "Analytics de perfil e projeto",
       "Links compartilháveis",
       "UTMs automáticas",
@@ -89,6 +93,9 @@ export function PricingSection() {
                   {plan.description}
                 </p>
                 <div className="flex items-baseline gap-2">
+                  <small className="text-sm text-red-400 line-through">
+                    {plan.originalPrice}
+                  </small>
                   <span className="text-4xl font-bold">{plan.price}</span>
                 </div>
                 <p className="text-muted-foreground mt-2 text-sm mb-4">
@@ -96,15 +103,10 @@ export function PricingSection() {
                 </p>
               </div>
 
-              <Link href="/auth/signup">
-                <Button
-                  className="w-full mb-8"
-                  variant={plan.popular ? "default" : "outline"}
-                  size="lg"
-                >
-                  Começar gratuitamente
-                </Button>
-              </Link>
+              <UpgradePlanButton
+                priceId={plan.priceId}
+                popular={plan.popular}
+              />
 
               <div className="space-y-4">
                 {plan.features.map((feature) => (
