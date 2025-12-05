@@ -3,9 +3,12 @@ import { Badge } from "@/components/ui/badge";
 import { CONSTANTS } from "@/shared/constants";
 import { UpgradePlanButton } from "./upgrade-plan-button";
 
+type Plans = "personal" | "hacker";
+
 const plans = [
   {
     name: "Personal",
+    id: "personal",
     originalPrice: "R$39,00",
     price: "R$25,90",
     priceId: CONSTANTS.personalPriceId,
@@ -20,6 +23,7 @@ const plans = [
   },
   {
     name: "Hacker",
+    id: "hacker",
     originalPrice: "R$99,00",
     price: "R$75,90",
     priceId: CONSTANTS.hackerPriceId,
@@ -106,6 +110,7 @@ export function PricingSection() {
               <UpgradePlanButton
                 priceId={plan.priceId}
                 popular={plan.popular}
+                plan={plan.id as Plans}
               />
 
               <div className="space-y-4">

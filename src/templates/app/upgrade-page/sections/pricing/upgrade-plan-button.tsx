@@ -5,9 +5,11 @@ import { useStripe } from "@/hooks/use-stripe";
 
 export function UpgradePlanButton({
   priceId,
+  plan,
   popular,
 }: {
   priceId: string;
+  plan: "personal" | "hacker";
   popular: boolean;
 }) {
   const { createStripeCheckout } = useStripe();
@@ -16,6 +18,7 @@ export function UpgradePlanButton({
     await createStripeCheckout({
       metadata: {
         priceId,
+        plan,
       },
     });
   }

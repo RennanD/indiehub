@@ -1,4 +1,4 @@
-import { Spline, User } from "lucide-react";
+import { Spline } from "lucide-react";
 import Link from "next/link";
 import { manageAuth } from "@/actions/manage-auth";
 import { auth } from "@/lib/auth";
