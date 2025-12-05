@@ -15,6 +15,7 @@ export async function createProfile(slug: string) {
       name: session.user.name,
       description: null,
       hasAvatarUpdated: false,
+      plan: "trial",
       avatar: session.user.image,
       slug,
       createdAt: Timestamp.now().toMillis(),

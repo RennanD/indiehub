@@ -1,15 +1,7 @@
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 import { Preview } from "@/components/preview";
 import { Android } from "@/components/ui/android";
-import { Button } from "@/components/ui/button";
 import { Gradient } from "@/components/ui/gradient";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-  InputGroupText,
-} from "@/components/ui/input-group";
+import { CreateNowForm } from "./create-now-form";
 
 const PROJECTS = [
   {
@@ -89,23 +81,7 @@ export function HeroSection() {
             métricas detalhadas de cada um.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-start items-center mb-12">
-            <InputGroup>
-              <InputGroupInput placeholder="example.com" className="pl-1" />
-              <InputGroupAddon>
-                <InputGroupText>https://indiehub.site/</InputGroupText>
-              </InputGroupAddon>
-            </InputGroup>
-            <Button
-              size="default"
-              asChild
-              className="gap-2 bg-primary hover:bg-primary/90"
-            >
-              <Link href="/create-link">
-                Criar minha página <ArrowRight className="w-4 h-4" />
-              </Link>
-            </Button>
-          </div>
+          <CreateNowForm />
         </div>
 
         <div className="flex-1 flex items-center justify-center">
@@ -113,6 +89,7 @@ export function HeroSection() {
             <Preview
               name="John Doe"
               description="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+              avatar="https://github.com/rennand.png"
               projects={PROJECTS}
             />
           </Android>

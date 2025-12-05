@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useController, useForm } from "react-hook-form";
 import { createProfile } from "@/actions/create-profile";
@@ -32,11 +32,14 @@ export function CreateProfileForm() {
   const [errorMessage, setErrorMessage] = useState<string>("");
 
   const router = useRouter();
+  const params = useSearchParams();
+
+  const slug = params.get("slug") ?? "";
 
   const form = useForm<CreateLinkSchema>({
     resolver: zodResolver(createLinkSchema),
     defaultValues: {
-      slug: "",
+      slug,
     },
   });
 

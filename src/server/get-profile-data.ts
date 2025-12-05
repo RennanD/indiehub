@@ -53,3 +53,15 @@ export async function getProjects(profileId: string) {
     ...doc.data(),
   })) as ProjectData[];
 }
+
+export async function getProfileId(userId: string) {
+  const snapshot = await db
+    .collection("profiles")
+    .where("userId", "==", userId)
+    .count()
+    .get();
+
+  const profileExists = snapshot.data().count > 0;
+
+  return profileExists;
+}
