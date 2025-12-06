@@ -41,7 +41,9 @@ export async function MainSection({
           <CardContent className="flex items-center justify-between">
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="text-2xl font-bold">{userData.totalViews}</h1>
+                <h1 className="text-2xl font-bold">
+                  {userData.totalViews ?? 0}
+                </h1>
                 <TrendingUp className="w-4 h-4 text-primary" />
               </div>
               <p className="text-sm text-muted-foreground">
@@ -74,7 +76,7 @@ export async function MainSection({
                 <div className="flex flex-col">
                   <h3 className="text-lg font-medium">{userData.name}</h3>
                   <p className="text-sm text-muted-foreground">
-                    https://indiehub.site/{userData.slug}
+                    https://indhub.in/{userData.slug}
                   </p>
                 </div>
                 <ShareProfileButton slug={userData.slug} />

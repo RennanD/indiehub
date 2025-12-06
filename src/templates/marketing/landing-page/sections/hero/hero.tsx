@@ -9,14 +9,14 @@ const PROJECTS = [
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     thumbnail:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGdHua81yyP72jTtK-L9lTKq4Zybc7I_r2nQ&s",
-    link: "https://indiehub.site/project-1",
+    link: "https://indhub.in/project-1",
   },
   {
     name: "Project 2",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     thumbnail:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGdHua81yyP72jTtK-L9lTKq4Zybc7I_r2nQ&s",
-    link: "https://indiehub.site/project-2",
+    link: "https://indhub.in/project-2",
   },
 
   {
@@ -24,14 +24,14 @@ const PROJECTS = [
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     thumbnail:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGdHua81yyP72jTtK-L9lTKq4Zybc7I_r2nQ&s",
-    link: "https://indiehub.site/project-3",
+    link: "https://indhub.in/project-3",
   },
   {
     name: "Project 4",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     thumbnail:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGdHua81yyP72jTtK-L9lTKq4Zybc7I_r2nQ&s",
-    link: "https://indiehub.site/project-4",
+    link: "https://indhub.in/project-4",
   },
 ];
 

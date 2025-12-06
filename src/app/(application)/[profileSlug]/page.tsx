@@ -19,7 +19,7 @@ export async function generateMetadata({
     title: `${profileData.name} | IndieHub`,
     description: profileData.description,
     alternates: {
-      canonical: `https://indiehub.site/${profileSlug}`,
+      canonical: `https://indhub.in/${profileSlug}`,
     },
     keywords: [
       `portfólio de ${profileData.name}`,

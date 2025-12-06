@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { auth } from "@/lib/auth";
 import { MePageTemplate } from "@/templates/app/me-page";
 
 export const metadata: Metadata = {

@@ -74,7 +74,7 @@ export function CreateNowForm() {
             value={slugField.value}
           />
           <InputGroupAddon>
-            <InputGroupText>https://indiehub.site/</InputGroupText>
+            <InputGroupText>https://indhub.in/</InputGroupText>
           </InputGroupAddon>
         </InputGroup>
         <Button

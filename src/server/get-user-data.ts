@@ -8,6 +8,7 @@ export type UserData = {
   name: string;
   description: string;
   totalViews: number;
+  plan: "trial" | "personal" | "hacker";
   avatar: string;
   slug: string;
 };
@@ -35,5 +36,6 @@ export async function getUserData() {
       ? await getDownloadURLFromPath(profile.avatar)
       : profile.avatar,
     slug: profile.slug,
+    plan: profile.plan,
   } as UserData;
 }

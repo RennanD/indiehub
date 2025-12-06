@@ -23,8 +23,20 @@ export async function POST(request: NextRequest) {
 
           if (userId && plan) {
             await db.collection("users").doc(userId).update({
-              plan: plan,
+              isTrial: false,
             });
+            const snapshot = await db
+              .collection("profiles")
+              .where("userId", "==", userId)
+              .get();
+
+            const profile = snapshot.docs[0].data();
+
+            if (profile) {
+              await db.collection("profiles").doc(profile.slug).update({
+                plan: plan,
+              });
+            }
           }
         }
 
@@ -54,6 +66,7 @@ export async function POST(request: NextRequest) {
           if (userId && plan) {
             await db.collection("users").doc(userId).update({
               plan: plan,
+              isTrial: false,
             });
           }
         }

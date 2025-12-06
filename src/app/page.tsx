@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Crie sua página e comece a compartilhar seus projetos e acompanhe as métricas detalhadas de cada um.",
   alternates: {
-    canonical: "https://indiehub.site",
+    canonical: "https://indhub.in/",
   },
   keywords: [
     " portfólio de projetos",
