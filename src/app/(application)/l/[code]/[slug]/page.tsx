@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const thumbnailUrl = await getDownloadURLFromPath(project.thumbnail);
 
-  console.log(thumbnailUrl);
+  console.log({ thumbnailUrl });
 
   return {
     title: project.name,
