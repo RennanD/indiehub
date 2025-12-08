@@ -1,3 +1,5 @@
+"use client";
+
 import { Eye, FolderArchive, Plus, Share2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -69,7 +71,10 @@ export function ProjectsCard({
                 <CarouselItem key={project.id} className="pt-1 md:basis-1/2">
                   <Card className="bg-accent pt-0 overflow-hidden h-full group relative">
                     <div className="absolute top-2 right-2 z-10">
-                      <ShareProjectModal project={project} profileId={profileId}>
+                      <ShareProjectModal
+                        project={project}
+                        profileId={profileId}
+                      >
                         <Button
                           size="icon"
                           variant="secondary"

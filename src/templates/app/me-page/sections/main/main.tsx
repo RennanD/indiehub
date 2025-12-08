@@ -1,3 +1,5 @@
+"use client";
+
 import { LogOut, Pencil, TrendingUp } from "lucide-react";
 import { manageAuth } from "@/actions/manage-auth";
 import { Preview } from "@/components/preview";
@@ -10,7 +12,6 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { getDownloadURLFromPath } from "@/lib/firebase";
 import type { ProjectData } from "@/server/get-profile-data";
 import type { UserData } from "@/server/get-user-data";
 // import { BarChartComponent } from "./bar-chart";
@@ -20,20 +21,13 @@ import { ShareProfileButton } from "./share-profile-button";
 
 const DEFAULT_DESCRIPTION = "Uma descrição bem legal aqui...";
 
-export async function MainSection({
+export function MainSection({
   userData,
   projects,
 }: {
   userData: UserData;
   projects: ProjectData[];
 }) {
-  const projectsWithThumbnail = await Promise.all(
-    projects.map(async (project) => ({
-      ...project,
-      thumbnail: await getDownloadURLFromPath(project.thumbnail),
-    })),
-  );
-
   return (
     <section className="flex relative flex-col gap-6 flex-1 pt-5 md:pt-20">
       <div className="w-full max-w-7xl mx-auto px-5">
@@ -107,10 +101,7 @@ export async function MainSection({
               </div>
             </CardContent>
           </Card>
-          <ProjectsCard
-            profileId={userData.slug}
-            projects={projectsWithThumbnail}
-          />
+          <ProjectsCard profileId={userData.slug} projects={projects} />
 
           {/* <BarChartComponent /> */}
         </div>
@@ -121,7 +112,7 @@ export async function MainSection({
               avatar={userData.avatar}
               name={userData.name}
               description={userData.description ?? DEFAULT_DESCRIPTION}
-              projects={projectsWithThumbnail}
+              projects={projects}
             />
           </Android>
         </div>
