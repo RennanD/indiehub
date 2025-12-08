@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getProfileData } from "@/server/get-profile-data";
+import { getProfileData, validatePageAccess } from "@/server/get-profile-data";
 import { ProfilePageTemplate } from "@/templates/app/profile-page";
 
 export async function generateMetadata({
@@ -35,6 +35,12 @@ export default async function ProfilePage({
   params: Promise<{ profileSlug: string }>;
 }) {
   const { profileSlug } = await params;
+
+  const pageIsAccessible = await validatePageAccess(profileSlug);
+
+  if (!pageIsAccessible) {
+    return notFound();
+  }
 
   return <ProfilePageTemplate slug={profileSlug} />;
 }

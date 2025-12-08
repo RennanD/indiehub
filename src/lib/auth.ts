@@ -4,6 +4,7 @@ import NextAuth, { type DefaultSession } from "next-auth";
 import Google from "next-auth/providers/google";
 import { TRIAL_DAYS } from "./config";
 import { db, firebaseCert } from "./firebase";
+import { isTrialPeriod } from "./utils";
 
 declare module "next-auth" {
   interface Session {
@@ -43,9 +44,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
         ...session,
         user: {
           ...session.user,
-          isTrial:
-            new Date(user.createdAt).getTime() >
-              new Date().getTime() - 1000 * 60 * 60 * 24 * TRIAL_DAYS || false,
+          isTrial: isTrialPeriod(user.createdAt),
         },
       };
     },

@@ -14,7 +14,7 @@ const plans = [
     priceId: CONSTANTS.personalPriceId,
     description: "Perfeito para começar",
     features: [
-      "5 projeto",
+      "2 projetos",
       "Analytics de perfil e projeto",
       "Links compartilháveis",
       "UTMs automáticas",

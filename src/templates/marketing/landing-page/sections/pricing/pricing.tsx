@@ -10,7 +10,7 @@ const plans = [
     price: "R$25,90",
     description: "Perfeito para começar",
     features: [
-      "5 projetos",
+      "2 projetos",
       "Analytics de perfil e projeto",
       "Links compartilháveis",
       "UTMs automáticas",

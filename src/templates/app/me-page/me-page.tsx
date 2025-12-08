@@ -15,11 +15,6 @@ export async function MePageTemplate() {
 
   if (!session || !session.user) redirect("/");
 
-  console.log(userData.plan, session.user.isTrial);
-  if (userData.plan === "trial" && !session.user.isTrial) {
-    redirect("/me/upgrade");
-  }
-
   return (
     <main>
       {userData.plan === "trial" && session.user.isTrial && (

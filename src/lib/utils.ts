@@ -1,6 +1,7 @@
 import imageCompression from "browser-image-compression";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { TRIAL_DAYS } from "./config";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -26,4 +27,11 @@ export async function compressImage(image: File) {
       resolve(result);
     });
   });
+}
+
+export function isTrialPeriod(date: number) {
+  return (
+    new Date(date).getTime() >
+      new Date().getTime() - 1000 * 60 * 60 * 24 * TRIAL_DAYS || false
+  );
 }
