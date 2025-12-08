@@ -2,7 +2,9 @@
 
 import { Timestamp } from "firebase-admin/firestore";
 import { auth } from "@/lib/auth";
+import { PERSONAL_MAX_PROJECTS } from "@/lib/config";
 import { db, storage } from "@/lib/firebase";
+import { getProfileData } from "@/server/get-profile-data";
 import { createShortLink } from "./short-links";
 
 export type CreateProjectSchema = {
@@ -12,6 +14,18 @@ export type CreateProjectSchema = {
   description: string;
   thumbnail: File;
 };
+
+async function getPlanQuota(profileId: string) {
+  const profile = await getProfileData(profileId);
+
+  if (!profile) return 0;
+
+  if (profile.plan === "trial") return 1;
+
+  if (profile.plan === "personal") return PERSONAL_MAX_PROJECTS;
+
+  return -1;
+}
 
 function slugify(text: string) {
   return text
@@ -29,7 +43,27 @@ function slugify(text: string) {
 export async function createProject(data: CreateProjectSchema) {
   const session = await auth();
 
-  if (!session?.user || !session.user.id) return false;
+  if (!session?.user || !session.user.id)
+    return {
+      message: "Não autorizado",
+      status: "UNAUTHORIZED",
+    };
+
+  const quota = await getPlanQuota(data.profileId);
+
+  const projectsCount = await db
+    .collection("profiles")
+    .doc(data.profileId)
+    .collection("projects")
+    .count()
+    .get()
+    .then((snapshot) => snapshot.data().count);
+
+  if (quota >= 0 && projectsCount >= quota)
+    return {
+      message: "Você atingiu o limite de projetos",
+      status: "FORBIDDEN",
+    };
 
   try {
     const generatedId = crypto.randomUUID();
@@ -73,7 +107,15 @@ export async function createProject(data: CreateProjectSchema) {
         profileShortLink: shortCode,
         createdAt: Timestamp.now().toMillis(),
       });
+
+    return {
+      message: "Projeto criado com sucesso",
+      status: "CREATED",
+    };
   } catch {
-    return false;
+    return {
+      message: "Internal Server Error",
+      status: "INTERNAL_SERVER_ERROR",
+    };
   }
 }

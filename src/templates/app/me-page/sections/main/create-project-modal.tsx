@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useController, useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { createProject } from "@/actions/create-project";
 import { Button } from "@/components/ui/button";
 import {
@@ -98,13 +99,22 @@ export function CreateProjectModal({
     const compressedImage = await compressImage(data.thumbnail);
 
     try {
-      await createProject({
+      const response = await createProject({
         ...data,
         profileId,
         thumbnail: compressedImage as File,
       });
+
+      if (response.status !== "CREATED") {
+        toast.error(response.message);
+        return;
+      }
+
+      toast.success(response.message);
       router.refresh();
+      form.reset();
     } catch (error) {
+      toast.error("Erro ao criar projeto");
       console.error(error);
     }
   }
