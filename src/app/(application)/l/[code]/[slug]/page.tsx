@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { notFound, redirect } from "next/navigation";
 import { getLinkByCode, trackLinkEvent } from "@/actions/short-links";
+import { getDownloadURLFromPath } from "@/lib/firebase";
 import { getProjectData } from "@/server/get-project-data";
 
 type Props = {
@@ -26,19 +27,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  const thumbnailUrl = await getDownloadURLFromPath(project.thumbnail);
+
   return {
     title: project.name,
     description: project.description,
     openGraph: {
       title: project.name,
       description: project.description,
-      images: [project.thumbnail],
+      images: [thumbnailUrl],
     },
     twitter: {
       card: "summary_large_image",
       title: project.name,
       description: project.description,
-      images: [project.thumbnail],
+      images: [thumbnailUrl],
     },
   };
 }
