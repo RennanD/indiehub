@@ -29,19 +29,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const thumbnailUrl = await getDownloadURLFromPath(project.thumbnail);
 
+  console.log(thumbnailUrl);
+
   return {
     title: project.name,
     description: project.description,
     openGraph: {
       title: project.name,
       description: project.description,
-      images: [thumbnailUrl],
+      images: [
+        {
+          url: thumbnailUrl,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: project.name,
       description: project.description,
-      images: [thumbnailUrl],
+      images: [
+        {
+          url: thumbnailUrl,
+        },
+      ],
     },
   };
 }
