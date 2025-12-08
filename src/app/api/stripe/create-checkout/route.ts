@@ -60,7 +60,7 @@ export async function POST(request: Request) {
       },
     ],
     mode: "payment",
-    payment_method_types: ["card", "boleto"],
+    payment_method_types: ["card"],
     metadata,
     success_url: `${request.headers.get("origin")}/me`,
     cancel_url: `${request.headers.get("origin")}/me/upgrade`,

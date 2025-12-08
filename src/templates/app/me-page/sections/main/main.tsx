@@ -41,7 +41,7 @@ export function MainSection({
                 <TrendingUp className="w-4 h-4 text-primary" />
               </div>
               <p className="text-sm text-muted-foreground">
-                Visualizações totais
+                Visualizações no perfil
               </p>
             </div>
 
