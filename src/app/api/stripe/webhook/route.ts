@@ -9,7 +9,10 @@ export async function POST(request: NextRequest) {
   const secret = process.env.STRIPE_WEBHOOK_KEY;
 
   if (!signature || !secret) {
-    return new Error("Missing signature or secret");
+    return NextResponse.json(
+      { message: "Missing signature or secret" },
+      { status: 400 },
+    );
   }
 
   try {
