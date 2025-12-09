@@ -16,6 +16,7 @@ import {
   getProjectLinks,
   type ShortLink,
 } from "@/actions/short-links";
+import { DiscordIcon, RedditIcon, TikTokIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -71,6 +72,27 @@ const SOCIAL_NETWORKS = [
     icon: Linkedin,
     color: "text-blue-700",
     bg: "bg-blue-100",
+  },
+  {
+    id: "tiktok",
+    name: "TikTok",
+    icon: TikTokIcon,
+    color: "text-white",
+    bg: "bg-black",
+  },
+  {
+    id: "discord",
+    name: "Discord",
+    icon: DiscordIcon,
+    color: "text-indigo-600",
+    bg: "bg-indigo-100",
+  },
+  {
+    id: "reddit",
+    name: "Reddit",
+    icon: RedditIcon,
+    color: "text-orange-600",
+    bg: "bg-orange-100",
   },
 ];
 
@@ -176,7 +198,7 @@ export function ShareProjectModal({
             <Label className="text-sm font-medium mb-3 block">
               Compartilhar via
             </Label>
-            <div className="flex items-center justify-between gap-2">
+            <div className="flex flex-wrap gap-2">
               {SOCIAL_NETWORKS.map((net) => (
                 <Button
                   key={net.id}
