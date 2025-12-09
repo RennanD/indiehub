@@ -19,6 +19,9 @@ const COLORS = {
   linkedin: "var(--color-blue-600)",
   whatsapp: "var(--color-green-700)",
   telegram: "var(--color-blue-600)",
+  tiktok: "hsl(0, 0%, 100%)", // White
+  discord: "hsl(235, 86%, 65%)", // Indigo
+  reddit: "hsl(16, 100%, 50%)", // Orange
 };
 
 export async function ProjectAnalyticsTemplate({
