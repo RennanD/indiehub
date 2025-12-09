@@ -9,7 +9,7 @@ type ProfileData = {
 export function ProfileSection({ profileData }: { profileData: ProfileData }) {
   return (
     <section className="flex max-w-sm">
-      <div className="flex flex-col items-center md:items-start">
+      <div className="flex flex-col w-full md:w-fit items-center md:items-start">
         <Avatar className="size-20 md:size-40">
           <AvatarImage
             sizes="100%"
@@ -20,7 +20,9 @@ export function ProfileSection({ profileData }: { profileData: ProfileData }) {
           <AvatarFallback>{profileData.name.charAt(0)}</AvatarFallback>
         </Avatar>
 
-        <h1 className="text-2xl font-bold mt-8 mb-2">{profileData.name}</h1>
+        <h1 className="text-2xl text-center font-bold mt-8 mb-2">
+          {profileData.name}
+        </h1>
         <p className="text-sm text-muted-foreground text-center md:text-left">
           {profileData.description}
         </p>
