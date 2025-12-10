@@ -24,7 +24,7 @@ const FAQ = [
   {
     question: "Tem plano gratuito?",
     answer:
-      "Você pode testar tudo por 3 dias sem compromisso. Depois disso, basta escolher o plano que melhor se adapta ao seu ritmo de criação.",
+      "Você pode testar tudo por 7 dias sem compromisso. Depois disso, basta escolher o plano que melhor se adapta ao seu ritmo de criação.",
   },
   {
     question: "Posso personalizar minha página?",
