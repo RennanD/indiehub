@@ -22,6 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="dark">
+      <head>
+        <meta
+          name="google-site-verification"
+          content="PgI_1KQh2yQopijVyfagPenbkZRuBHW8oRcb8pbYJZQ"
+        />
+      </head>
       <body className={`${inder.variable} dark font-sans antialiased`}>
         {children}
         <Toaster />
