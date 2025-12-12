@@ -25,6 +25,7 @@ export async function generateMetadata({
       `portfólio de ${profileData.name}`,
       `página de portfólio de ${profileData.name}`,
       `página de portfólio de ${profileData.name}`,
+      profileData.description,
     ],
   };
 }

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import type { ReadonlyHeaders } from "next/dist/server/web/spec-extension/adapters/headers";
-import { headers } from "next/headers";
-import { notFound, redirect } from "next/navigation";
-import { getLinkByCode, trackLinkEvent } from "@/actions/short-links";
+
+import { notFound } from "next/navigation";
+import { getLinkByCode } from "@/actions/short-links";
+import { JsonLdWrapper } from "@/components/json-ld-wrapper";
 import { getProjectData } from "@/server/get-project-data";
+import { RedirectWrapper } from "./redirect-wrapper";
 
 type Props = {
   params: Promise<{ code: string; slug: string }>;
@@ -52,64 +53,32 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const detectBot = (headersList: ReadonlyHeaders) => {
-  const userAgent = headersList.get("User-Agent");
-
-  if (userAgent) {
-    return /bot|chatgpt|facebookexternalhit|WhatsApp|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex|MetaInspector/i.test(
-      userAgent,
-    );
-  }
-
-  return false;
-};
-
 export default async function RedirectPage({ params }: Props) {
   const { code } = await params;
   const link = await getLinkByCode(code);
 
   if (!link) {
-    console.warn("[RedirectPage] Link not found for code", code);
     notFound();
   }
 
-  // Tracking
-  const headersList = await headers();
+  const project = await getProjectData(link.profileId, link.projectId);
 
-  const bot = detectBot(headersList);
-
-  if (!bot) {
-    const userAgent = headersList.get("user-agent") || "unknown";
-    const referer = headersList.get("referer") || "direct";
-    const ip =
-      headersList.get("x-forwarded-for") ||
-      headersList.get("x-real-ip") ||
-      "unknown";
-
-    try {
-      await trackLinkEvent(
-        code,
-        userAgent,
-        ip,
-        referer,
-        link.profileId,
-        link.projectId,
-        link.utmParameters.source,
-      );
-    } catch (err) {
-      console.error("[RedirectPage] Error calling trackLinkEvent", err);
-    }
-
-    // Construir URL com UTMs
-    const url = new URL(link.originalUrl);
-    if (link.utmParameters) {
-      url.searchParams.set("utm_source", link.utmParameters.source);
-      url.searchParams.set("utm_medium", link.utmParameters.medium);
-      url.searchParams.set("utm_campaign", link.utmParameters.campaign);
-    }
-
-    redirect(url.toString());
+  if (!project) {
+    notFound();
   }
 
-  return null;
+  const jsonLdProject = {
+    "@context": "https://schema.org",
+    "@type": "Projeto",
+    name: project.name,
+    image: project.thumbnail,
+    description: project.description,
+  };
+
+  return (
+    <>
+      <RedirectWrapper link={link} code={code} />
+      <JsonLdWrapper content={jsonLdProject} />
+    </>
+  );
 }
