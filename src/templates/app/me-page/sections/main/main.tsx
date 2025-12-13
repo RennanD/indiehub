@@ -13,20 +13,24 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import type { ProjectData } from "@/server/get-profile-data";
+import type { SocialLinkData } from "@/server/get-social-links";
 import type { UserData } from "@/server/get-user-data";
 // import { BarChartComponent } from "./bar-chart";
 import { EditProfileModal } from "./edit-profile-modal";
 import { ProjectsCard } from "./projects-card";
 import { ShareProfileButton } from "./share-profile-button";
+import { SocialLinksManager } from "./social-links-manager";
 
 const DEFAULT_DESCRIPTION = "Uma descrição bem legal aqui...";
 
 export function MainSection({
   userData,
   projects,
+  socialLinks,
 }: {
   userData: UserData;
   projects: ProjectData[];
+  socialLinks: SocialLinkData[];
 }) {
   return (
     <section className="flex relative flex-col gap-6 flex-1 pt-5 md:pt-20">
@@ -98,6 +102,10 @@ export function MainSection({
                     </Button>
                   </EditProfileModal>
                 </CardFooter>
+                <SocialLinksManager
+                  profileId={userData.slug}
+                  socialLinks={socialLinks}
+                />
               </div>
             </CardContent>
           </Card>

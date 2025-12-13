@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import { getDownloadURLFromPath } from "@/lib/firebase";
 import { getProjects } from "@/server/get-profile-data";
+import { getSocialLinks } from "@/server/get-social-links";
 import { getUserData } from "@/server/get-user-data";
 import { MainSection, TopBannerSection } from "./sections";
 
@@ -11,6 +12,7 @@ export async function MePageTemplate() {
   if (!userData) redirect("/");
 
   const projects = await getProjects(userData.slug);
+  const socialLinks = await getSocialLinks(userData.slug);
 
   const projectsWithThumbnail = await Promise.all(
     projects.map(async (project) => ({
@@ -30,6 +32,7 @@ export async function MePageTemplate() {
       )}
       <MainSection
         projects={projectsWithThumbnail}
+        socialLinks={socialLinks}
         userData={{
           name: userData.name,
           totalViews: userData.totalViews,
