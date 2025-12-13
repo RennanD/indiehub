@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
+import { checkOnboardingRequired } from "@/server/check-onboarding-required";
 import { getUserData } from "@/server/get-user-data";
 import { MePageTemplate } from "@/templates/app/me-page";
 
@@ -24,6 +25,13 @@ export default async function MePage() {
 
   if (userData.plan === "trial" && !session.user.isTrial) {
     redirect("/me/upgrade");
+  }
+
+  // Verificar se precisa de onboarding
+  const needsOnboarding = await checkOnboardingRequired();
+
+  if (needsOnboarding) {
+    redirect("/me/onboarding?step=bio");
   }
 
   return <MePageTemplate />;

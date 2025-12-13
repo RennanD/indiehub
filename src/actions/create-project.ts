@@ -111,6 +111,7 @@ export async function createProject(data: CreateProjectSchema) {
     return {
       message: "Projeto criado com sucesso",
       status: "CREATED",
+      projectId: generatedId,
     };
   } catch {
     return {
