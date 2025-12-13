@@ -25,7 +25,7 @@ const plans = [
     name: "Hacker",
     id: "hacker",
     originalPrice: "R$99,00",
-    price: "R$75,90",
+    price: "R$49,90",
     priceId: CONSTANTS.hackerPriceId,
     description: "Para makers que querem escalar",
     features: [

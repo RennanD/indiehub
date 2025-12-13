@@ -27,6 +27,7 @@ export async function POST(request: NextRequest) {
           if (userId && plan) {
             await db.collection("users").doc(userId).update({
               isTrial: false,
+              betaTester: true,
             });
             const snapshot = await db
               .collection("profiles")
@@ -38,6 +39,7 @@ export async function POST(request: NextRequest) {
             if (profile) {
               await db.collection("profiles").doc(profile.slug).update({
                 plan: plan,
+                betaTester: true,
               });
             }
           }
@@ -70,6 +72,7 @@ export async function POST(request: NextRequest) {
             await db.collection("users").doc(userId).update({
               plan: plan,
               isTrial: false,
+              betaTester: true,
             });
           }
         }

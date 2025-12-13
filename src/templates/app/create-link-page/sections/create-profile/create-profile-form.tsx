@@ -78,7 +78,7 @@ export function CreateProfileForm() {
       return;
     }
 
-    router.push("/me");
+    router.push("/me/onboarding?step=welcome");
   }
 
   return (
