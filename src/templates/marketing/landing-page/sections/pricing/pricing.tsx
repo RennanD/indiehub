@@ -7,7 +7,7 @@ const plans = [
   {
     name: "Personal",
     originalPrice: "R$39,00",
-    price: "R$25,90",
+    price: "R$29,90",
     description: "Perfeito para começar",
     features: [
       "2 projetos",
@@ -20,7 +20,7 @@ const plans = [
   {
     name: "Hacker",
     originalPrice: "R$99,00",
-    price: "R$75,00",
+    price: "R$49,90",
     description: "Para makers que querem escalar",
     features: [
       "Projetos ilimitados",
