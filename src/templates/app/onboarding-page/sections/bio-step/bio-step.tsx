@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
+
 import { forwardRef, useImperativeHandle, useState } from "react";
 import { useController, useForm } from "react-hook-form";
 import { updateBio } from "@/actions/update-bio";
