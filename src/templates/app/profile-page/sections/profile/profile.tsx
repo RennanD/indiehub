@@ -1,12 +1,21 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import type { SocialLinkData } from "@/server/get-social-links";
+import { SocialLinks } from "./social-links";
 
 type ProfileData = {
   name: string;
   description: string;
   avatar: string;
+  slug: string;
 };
 
-export function ProfileSection({ profileData }: { profileData: ProfileData }) {
+export function ProfileSection({
+  profileData,
+  socialLinks,
+}: {
+  profileData: ProfileData;
+  socialLinks: SocialLinkData[];
+}) {
   return (
     <section className="flex max-w-sm">
       <div className="flex flex-col w-full md:w-fit items-center md:items-start">
@@ -26,6 +35,7 @@ export function ProfileSection({ profileData }: { profileData: ProfileData }) {
         <p className="text-sm text-muted-foreground text-center md:text-left">
           {profileData.description}
         </p>
+        <SocialLinks socialLinks={socialLinks} profileId={profileData.slug} />
       </div>
     </section>
   );

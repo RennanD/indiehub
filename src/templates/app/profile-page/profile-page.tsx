@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Gradient } from "@/components/ui/gradient";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { getProfileData, getProjects } from "@/server/get-profile-data";
+import { getSocialLinks } from "@/server/get-social-links";
 import { ProfileSection, ProjectsSection } from "./sections";
 
 export async function ProfilePageTemplate({ slug }: { slug: string }) {
@@ -44,6 +45,7 @@ export async function ProfilePageTemplate({ slug }: { slug: string }) {
   }
 
   const projects = await getProjects(slug);
+  const socialLinks = await getSocialLinks(slug);
 
   return (
     <>
@@ -71,7 +73,9 @@ export async function ProfilePageTemplate({ slug }: { slug: string }) {
                 name: profileData.name,
                 description: profileData.description,
                 avatar: profileData.avatar,
+                slug: profileData.slug,
               }}
+              socialLinks={socialLinks}
             />
             <ProjectsSection projects={projects} />
           </div>
